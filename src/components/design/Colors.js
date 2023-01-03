@@ -29,7 +29,7 @@ const hashes = {
   primaryLt: '#D9D9D9',
   secondary: '#323232',
   secondaryHover: '#252525',
-  secondaryLt: '#666666',
+  secondaryLt: '#8F8F8F',
 };
 
 export default createGlobalStyle`

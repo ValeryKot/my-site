@@ -1,6 +1,7 @@
 import TopTitle from './components/TopTitle';
 import {css, createGlobalStyle} from 'styled-components';
 import DesignSystem from './components/design';
+import Home from './pages/Home';
 
 const GlobalStyle = createGlobalStyle`
   ${css`
@@ -10,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
 
     * {
       margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
@@ -29,8 +31,7 @@ function App() {
     <>
       <GlobalStyle />
       <DesignSystem />
-      Hello world!
-      <TopTitle />
+      <Home/>
     </>
   );
 }
