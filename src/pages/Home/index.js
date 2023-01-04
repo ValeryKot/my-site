@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {motion} from 'framer-motion';
 import {h1l, primaryHover, bodyLg} from '../../components/design';
 
 const Wr = styled.div`
@@ -12,11 +13,11 @@ const Wr = styled.div`
   height: 100vh;
   min-height: 100%;
   background: linear-gradient(
-      261.62deg,
-      ${(props) => props.theme.gradientEnd} 0%,
-      ${(props) => props.theme.gradientMid} 80.7%,
-      #ffb400 81.85%
-    );
+    261.62deg,
+    ${(props) => props.theme.gradientEnd} 0%,
+    ${(props) => props.theme.gradientMid} 80.7%,
+    #ffb400 81.85%
+  );
 
   &::before {
     content: '';
@@ -53,7 +54,6 @@ const TextWr = styled.div`
   gap: 25px;
   & h1 {
     ${h1l};
-    /* font-family: 'Poppins'; */
     color: ${(props) => props.theme.title};
     text-align: left;
   }
@@ -62,7 +62,6 @@ const TextWr = styled.div`
   }
   & p {
     ${bodyLg};
-    /* font-family: 'OpenSans'; */
     color: ${(props) => props.theme.title};
     text-align: left;
   }
@@ -70,24 +69,27 @@ const TextWr = styled.div`
 
 function Home() {
   return (
-    <>
-      <Wr>
-        <TextContainer>
-          <TextWr>
-            <h1>
-              I’m <span>VALERY KOT</span>.<br />WEB DEVELOPER
-            </h1>
-            <p>
-              I'm a Belorusian based web designer & front‑end developer focused
-              on crafting clean & user‑friendly experiences, I am passionate
-              about building excellent software that improves the lives of those
-              around me.
-            </p>
-            <button style={{padding: '10px'}}>About</button>
-          </TextWr>
-        </TextContainer>
-      </Wr>
-    </>
+    <Wr>
+      <TextContainer
+        as={motion.div}
+        initial={{y: 2000}}
+        animate={{y: 0}}
+        transition={{duration: 0.7, ease: 'circOut'}}
+      >
+        <TextWr>
+          <h1>
+            I’m <span>VALERY KOT</span>.<br />
+            WEB DEVELOPER
+          </h1>
+          <p>
+            I'm a Belorusian based front‑end developer focused on crafting clean
+            & user‑friendly experiences, I am passionate about building
+            excellent software that improves the lives of those around me.
+          </p>
+          <button style={{padding: '10px'}}>About</button>
+        </TextWr>
+      </TextContainer>
+    </Wr>
   );
 }
 
