@@ -3,6 +3,7 @@ import {css, createGlobalStyle} from 'styled-components';
 export const [
   
   white,
+  dark,
   primary,
   primaryHover,
   primaryLt,
@@ -13,6 +14,7 @@ export const [
 ] = [
  
   'var(--white)',
+  'var(--dark)',
   'var(--primary)',
   'var(--primaryHover)',
   'var(--primaryLt)',
@@ -24,9 +26,10 @@ export const [
 
 const hashes = {
   white: '#fff',
-  primary: '#FFB400',
-  primaryHover: '#323232',
-  primaryLt: '#D9D9D9',
+  dark: '#000000',
+  primary: '#202020',
+  primaryHover: '#FFB400',
+  primaryLt: '#545454',
   secondary: '#323232',
   secondaryHover: '#252525',
   secondaryLt: '#8F8F8F',

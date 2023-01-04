@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {h1l, white, primary, bodyLg} from '../../components/design';
+import {h1l, white, primaryHover, bodyLg} from '../../components/design';
 
 const Wr = styled.div`
   position: relative;
@@ -13,11 +13,10 @@ const Wr = styled.div`
   min-height: 100%;
   background: linear-gradient(
       261.62deg,
-      #000000 0%,
-      #323232 80.7%,
+      ${(props) => props.theme.gradientEnd} 0%,
+      ${(props) => props.theme.gradientMid} 80.7%,
       #ffb400 81.85%
-    ),
-    #d9d9d9;
+    );
 
   &::before {
     content: '';
@@ -59,7 +58,7 @@ const TextWr = styled.div`
     text-align: left;
   }
   & span {
-    color: ${primary};
+    color: ${primaryHover};
   }
   & p {
     ${bodyLg};

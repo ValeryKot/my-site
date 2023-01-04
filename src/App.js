@@ -1,6 +1,14 @@
-import TopTitle from './components/TopTitle';
-import {css, createGlobalStyle} from 'styled-components';
+import {useState} from 'react';
+import {css, createGlobalStyle, ThemeProvider} from 'styled-components';
 import DesignSystem from './components/design';
+import {
+  white,
+  dark,
+  primary,
+  primaryLt,
+  secondary,
+  secondaryLt,
+} from './components/design';
 import Home from './pages/Home';
 
 const GlobalStyle = createGlobalStyle`
@@ -26,13 +34,31 @@ const GlobalStyle = createGlobalStyle`
   `}
 `;
 
+const darkTheme = {
+  body: primary,
+  title: white,
+  subtitle: secondary,
+  gradientEnd: dark,
+  gradientMid: secondary,
+};
+const lightTheme = {
+  body: white,
+  title: primaryLt,
+  subtitle: secondaryLt,
+  gradientEnd: white,
+  gradientMid: white,
+};
+
 function App() {
+  const [theme, setTheme] = useState('dark');
+  const isDarkTheme = theme === 'dark';
+
   return (
-    <>
+    <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <GlobalStyle />
       <DesignSystem />
-      <Home/>
-    </>
+      <Home />
+    </ThemeProvider>
   );
 }
 
