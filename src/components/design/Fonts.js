@@ -1,17 +1,17 @@
 import {css, createGlobalStyle} from 'styled-components';
 
 const fontSizeLineHeight = {
-  megaTx: [118, 180],
-  h1l: [56, 62],
-  h1m: [38, 48],
-  h1s: [29, 39],
-  h2L: [26, 36],
-  h2m: [22, 26],
-  h2s: [21, 34],
-  bodyLg: [16, 35],
-  bodyMd: [16, 24],
-  bodySm: [14, 20],
-  caption: [12, 16],
+  megaTx: [118, 180, 1],
+  h1l: [56, 62, 1],
+  h1m: [38, 48, 1],
+  h1s: [29, 39, 1],
+  h2L: [26, 36, 1],
+  h2m: [22, 26, 1],
+  h2s: [21, 34, 1],
+  bodyLg: [16, 35, 2],
+  bodyMd: [16, 24, 2],
+  bodySm: [14, 20, 2],
+  caption: [12, 16, 2],
 };
 
 export const [
@@ -27,8 +27,8 @@ export const [
   bodySm,
   caption,
 ] = Object.entries(fontSizeLineHeight).map(
-  ([fontName, [_, lineHeight]]) => css`
-    font-family: Poppins, sans-serif;
+  ([fontName, [_, lineHeight, font]]) => css`
+    font-family: ${font === 1 ? 'Poppins' : 'OpenSans'}, sans-serif;
     font-size: var(--${fontName});
     line-height: ${lineHeight}px;
   `

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {h1l, white, primaryHover, bodyLg} from '../../components/design';
+import {h1l, primaryHover, bodyLg} from '../../components/design';
 
 const Wr = styled.div`
   position: relative;
@@ -53,8 +53,8 @@ const TextWr = styled.div`
   gap: 25px;
   & h1 {
     ${h1l};
-    font-family: 'Poppins';
-    color: ${white};
+    /* font-family: 'Poppins'; */
+    color: ${(props) => props.theme.title};
     text-align: left;
   }
   & span {
@@ -62,8 +62,8 @@ const TextWr = styled.div`
   }
   & p {
     ${bodyLg};
-    font-family: 'OpenSans';
-    color: ${white};
+    /* font-family: 'OpenSans'; */
+    color: ${(props) => props.theme.title};
     text-align: left;
   }
 `;
@@ -75,7 +75,7 @@ function Home() {
         <TextContainer>
           <TextWr>
             <h1>
-              I’m <span>VALERY KOT</span>. WEB DEVELOPER
+              I’m <span>VALERY KOT</span>.<br />WEB DEVELOPER
             </h1>
             <p>
               I'm a Belorusian based web designer & front‑end developer focused
