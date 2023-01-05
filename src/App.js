@@ -11,6 +11,7 @@ import {
 } from './components/design';
 import {ThemeButton} from './components/ui/Button';
 import Nav from './components/ui/Nav';
+import About from './pages/About';
 import Home from './pages/Home';
 
 const GlobalStyle = createGlobalStyle`
@@ -70,6 +71,7 @@ function App() {
         <ThemeButton toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
         <Nav page={page} setPage={setPage} />
         {page === 'HOME' && <Home />}
+        {page === 'ABOUT' && <About/>}
       </React.StrictMode>
     </ThemeProvider>
   );

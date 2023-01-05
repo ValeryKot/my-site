@@ -16,7 +16,7 @@ const Wr = styled.div`
     261.62deg,
     ${(props) => props.theme.gradientEnd} 0%,
     ${(props) => props.theme.gradientMid} 80.7%,
-    #ffb400 81.85%
+    ${primaryHover} 81.85%
   );
 
   &::before {
