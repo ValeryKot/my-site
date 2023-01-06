@@ -30,3 +30,9 @@ export const PERSONAL_INFO = [
   {title: 'GitHub:', value: 'ValeryKot', link: GITHUB},
   {title: 'Languages:', value: 'Russian, English(A1)'},
 ];
+
+export const STATS_DATA = [
+  {value: '999', plus: '+', title: 'MONT’S OF', subtitle: 'EXPERIENCE'},
+  {value: '4', plus: '', title: 'Completed', subtitle: 'projects'},
+  {value: '3', plus: '', title: 'Happy', subtitle: 'customers'},
+];

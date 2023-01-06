@@ -1,16 +1,20 @@
-import moment from 'moment';
 import React from 'react';
 import styled from 'styled-components';
-import {bold, bodyMd, hl, primaryHover, regular} from '../design';
+import {bold, bodyMd, hl, primaryHover, primaryLt, regular} from '../design';
+import {fromDate} from '../../utils/helpers';
+import { STATS_DATA } from '../../utils/static';
+
 
 const Wr = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
 `;
+
 const Box = styled.div`
   width: calc(50% - 15px);
-  padding: 20px 30px 25px 40px;
+  min-width: fit-content;
+  padding: 20px 5px 25px 40px;
   border-radius: 5px;
   border: 1px solid ${(props) => props.theme.subtitle};
   & h2 {
@@ -25,6 +29,8 @@ const Box = styled.div`
     ${regular}
   }
   & p {
+    position: relative;
+    padding-left: 40px;
     ${bodyMd};
     color: ${(props) => props.theme.title};
     text-transform: uppercase;
@@ -32,34 +38,30 @@ const Box = styled.div`
   & p > span {
     display: block;
   }
+  & p::before {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 13px;
+    width: 30px;
+    height: 1px;
+    background-color: ${primaryLt};
+  }
 `;
-
-const fromDate = () => {
-  return moment('01.08.2022', 'DD/MM/YYYY')
-    .fromNow(true)
-    .replace(' months', '');
-};
 
 export default function StatsBox() {
   return (
     <Wr>
-      <Box>
+      {STATS_DATA.map((stats) => (<Box>
         <h2>
-          {fromDate()}
-          <span>+</span>
+          {stats.value === '999' ? fromDate() : stats.value}
+          <span>{stats.plus}</span>
         </h2>
         <p>
-          MONT’S OF <span>EXPERIENCE</span>
+          {stats.title} <span>{stats.subtitle}</span>
         </p>
-      </Box>
-      <Box>
-        <h2>6+</h2>
-        <p>StatsBox</p>
-      </Box>
-      <Box>
-        <h2>6+</h2>
-        <p>StatsBox</p>
-      </Box>
+      </Box>))}
+
     </Wr>
   );
 }

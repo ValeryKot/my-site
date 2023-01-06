@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {h1l, megaTx, black, secondaryLt, primaryHover} from '../../design';
+import {h1l, megaTx, black, primaryHover} from '../../design';
 
 const Wr = styled.div`
   margin: 0 auto;
