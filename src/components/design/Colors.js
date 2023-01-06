@@ -10,6 +10,7 @@ export const [
   secondary,
   secondaryHover,
   secondaryLt,
+  success,
   
 ] = [
  
@@ -21,6 +22,7 @@ export const [
   'var(--secondary)',
   'var(--secondaryHover)',
   'var(--secondaryLt)',
+  'var(--success)',
   
 ];
 
@@ -33,6 +35,7 @@ const hashes = {
   secondary: '#323232',
   secondaryHover: '#252525',
   secondaryLt: '#8F8F8F',
+  success: '#5BE85B',
 };
 
 export default createGlobalStyle`

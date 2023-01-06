@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import {megaTx, black} from './design/Fonts';
+import {megaTx, black} from '../components/design/Fonts';
 
 const Title = styled.div`
   font-family: 'OpenSans';
