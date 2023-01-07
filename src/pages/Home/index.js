@@ -72,9 +72,12 @@ function Home() {
     <Wr>
       <TextContainer
         as={motion.div}
-        initial={{y: 2000}}
-        animate={{y: 0}}
-        transition={{duration: 0.7, ease: 'circOut'}}
+        // initial={{y: 2000}}
+        // animate={{y: 0}}
+        // transition={{duration: 0.7, ease: 'circOut'}}
+        initial={{filter: 'blur(100px)', opacity: 0}}
+        animate={{filter: 'blur(0px)', opacity: 1}}
+        transition={{duration: 2}}
       >
         <TextWr>
           <h1>

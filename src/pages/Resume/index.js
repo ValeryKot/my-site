@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import TitleSection from '../../components/ui/TitleSection';
 import {semibold, h2l, bodyMd, primaryHover, primaryLt, white} from '../../components/design';
+import ExperienceItem from '../../components/ExperienceItem';
 
 const Wr = styled.div`
   position: relative;
@@ -43,7 +44,9 @@ function Resume() {
   return (
     <Wr>
       <TitleSection title='Resu' secondTitle='Me' subtitle='history' />
-      <Container><Box>Resume</Box></Container>
+      <Container><Box>
+      <ExperienceItem/>
+       Resume</Box></Container>
     </Wr>
   );
 }
