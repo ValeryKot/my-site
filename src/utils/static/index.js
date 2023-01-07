@@ -36,3 +36,14 @@ export const STATS_DATA = [
   {value: '4', plus: '', title: 'Completed', subtitle: 'projects'},
   {value: '3', plus: '', title: 'Happy', subtitle: 'customers'},
 ];
+
+export const SKILLS_DATA = [
+  {value: 100, title: 'html'},
+  {value: 100, title: 'javascript'},
+  {value: 100, title: 'css'},
+  {value: 75, title: 'react'},
+  {value: 75, title: 'Adaptive Design'},
+  {value: 25, title: 'Tailwind css'},
+  {value: 25, title: 'TypeScript'},
+  {value: 75, title: 'Figma'},
+]

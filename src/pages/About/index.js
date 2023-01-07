@@ -4,6 +4,7 @@ import MyInfo from '../../components/MyInfo';
 import MySkills from '../../components/MySkills';
 import StatsBox from '../../components/StatsBox';
 import TitleSection from '../../components/ui/TitleSection';
+import { Separator } from '../../components/ui/Separator';
 
 const Wr = styled.div`
   position: relative;
@@ -23,13 +24,6 @@ const InfoContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
-const Separator = styled.hr`
-  border: 0;
-  border-top: 1px solid ${(props) => props.theme.subtitle};
-  margin: 60px auto;
-  max-width: 40%;
-  opacity: 0.45;
-`;
 
 function About() {
   return (
@@ -42,6 +36,7 @@ function About() {
         </InfoContainer>
         <Separator/>
         <MySkills/>
+        <Separator/>
       </Container>
     </Wr>
   );

@@ -1,10 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import {semibold, h2l, bodyMd, primaryHover, primaryLt, white} from '../../components/design';
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import {
+  CircularProgressbarWithChildren,
+  buildStyles,
+} from 'react-circular-progressbar';
+import {hex2rgba, getStyle} from '../../utils/helpers';
+import {SKILLS_DATA} from '../../utils/static';
 
 const Wr = styled.div`
   width: 100%;
+  padding-bottom: 80px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -24,11 +30,15 @@ const Wr = styled.div`
   }
 `;
 const Chart = styled.div`
-  width: 25%;
+  width: calc(25% - 30px);
   padding: 0 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  & svg {
+    width: 7rem;
+    height: 7rem;
+  }
   & p {
     margin-top: 15px;
     ${bodyMd};
@@ -38,43 +48,37 @@ const Chart = styled.div`
     text-align: center;
   }
 `;
+const Percent = styled.span`
+  margin-top: -15px;
+  ${bodyMd};
+  ${semibold};
+  color: ${(props) => props.theme.title};
+  text-transform: uppercase;
+  text-align: center;
+`;
 
-const percentage = 66;
 
 export default function MySkills() {
   return (
     <Wr>
       <div>
-        <Chart>
-        <CircularProgressbar value={percentage} text={`${percentage}%`} styles={buildStyles({
-    strokeLinecap: 'butt',
-
-    // Text size
-    textSize: '10px',
-
-    // How long animation takes to go from one percentage to another, in seconds
-    pathTransitionDuration: 5,
-
-    // Can specify path transition in more detail, or remove it entirely
-    // pathTransition: 'none',
-
-    // Colors
-    pathColor: `rgba(62, 152, 199, ${percentage / 100})`,
-    textColor: white,
-    trailColor: primaryLt,
-    backgroundColor: 'none',
-  })}
-/>
-          <p>html</p>
-        </Chart>
-        <Chart>
-          <p>I123</p>
-          <p>I123</p>
-        </Chart>
-        <Chart>
-          <p>I123</p>
-          <p>I123</p>
-        </Chart>
+        {SKILLS_DATA.map((skill) => (
+          <Chart>
+            <CircularProgressbarWithChildren
+              value={skill.value}
+              styles={buildStyles({
+                strokeLinecap: 'butt',
+                pathColor: hex2rgba(getStyle(primaryHover), skill.value),
+                textColor: white,
+                trailColor: primaryLt,
+                backgroundColor: 'none',
+              })}
+            >
+              <Percent>{skill.value}%</Percent>
+            </CircularProgressbarWithChildren>
+            <p>{skill.title}</p>
+          </Chart>
+        ))}
       </div>
     </Wr>
   );

@@ -5,3 +5,13 @@ export const fromDate = () => {
       .fromNow(true)
       .replace(' months', '');
   };
+
+export const hex2rgba = (hex, alpha = 100) => {
+  const [r, g, b] = hex.match(/\w\w/g).map((x) => parseInt(x, 16));
+  return `rgba(${r},${g},${b},${alpha})`;
+};
+
+export const getStyle = (element) => {
+  let variable = element.split(/[(,)]/).slice(1,2).toString();
+  return getComputedStyle(document.documentElement).getPropertyValue(variable);
+};

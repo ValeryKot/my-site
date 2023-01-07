@@ -13,6 +13,7 @@ import {ThemeButton} from './components/ui/Button';
 import Nav from './components/ui/Nav';
 import About from './pages/About';
 import Home from './pages/Home';
+import Resume from './pages/Resume';
 
 const GlobalStyle = createGlobalStyle`
   ${css`
@@ -72,6 +73,7 @@ function App() {
         <Nav page={page} setPage={setPage} />
         {page === 'HOME' && <Home />}
         {page === 'ABOUT' && <About/>}
+        {page === 'RESUME' && <Resume/>}
       </React.StrictMode>
     </ThemeProvider>
   );
