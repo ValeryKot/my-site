@@ -18,7 +18,7 @@ const Wr = styled.div`
     ${(props) => props.theme.gradientMid} 80.7%,
     ${primaryHover} 81.85%
   );
-
+/* 
   &::before {
     content: '';
     position: absolute;
@@ -36,7 +36,26 @@ const Wr = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     filter: drop-shadow(2px 2px 7px rgba(0, 0, 0, 0.8));
-  }
+  } */
+`;
+
+const Avatar = styled.div`
+
+    position: absolute;
+    z-index: 11;
+    top: 64px;
+    left: 64px;
+    width: 33.34%;
+    height: calc(100vh - 128px);
+    border-radius: 30px;
+    background-image: image-set(
+      url(${require('../../images/myPhoto.jpg')}) 1x,
+      url(${require('../../images/myPhoto2x.jpg')}) 2x
+    );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(2px 2px 7px rgba(0, 0, 0, 0.8));
 `;
 
 const TextContainer = styled.div`
@@ -70,6 +89,13 @@ const TextWr = styled.div`
 function Home() {
   return (
     <Wr>
+    <Avatar
+        as={motion.div}
+        initial={{x: -2000}}
+        animate={{x: 0}}
+        transition={{duration: 0.7, ease: 'circOut'}}
+
+    />
       <TextContainer
         as={motion.div}
         // initial={{y: 2000}}
