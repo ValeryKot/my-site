@@ -52,7 +52,7 @@ const Box = styled.div`
 export default function StatsBox() {
   return (
     <Wr>
-      {STATS_DATA.map((stats) => (<Box>
+      {STATS_DATA.map((stats) => (<Box key={stats.title}>
         <h2>
           {stats.value === '999' ? fromDate() : stats.value}
           <span>{stats.plus}</span>

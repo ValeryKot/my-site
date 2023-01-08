@@ -36,6 +36,7 @@ function About() {
         </InfoContainer>
         <Separator/>
         <MySkills/>
+        TECHNICAL/PRODUCT SKILLS: GRAPHQL, SASS, Redux (Redux Thunk, Redux Toolkit), STYLED-COMPONENTS  ETC.
         <Separator/>
       </Container>
     </Wr>

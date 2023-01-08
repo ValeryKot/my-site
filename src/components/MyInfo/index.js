@@ -44,7 +44,7 @@ export default function MyInfo() {
     <Wr>
       <ul>
         {PERSONAL_INFO.map((item) => (
-          <li>
+          <li key={item.title}>
             <span>{item.title} </span>
             <span style={item.label && {color: `${success}`}}>
               {item.link ? (

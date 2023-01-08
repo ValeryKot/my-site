@@ -42,8 +42,47 @@ export const SKILLS_DATA = [
   {value: 100, title: 'javascript'},
   {value: 100, title: 'css'},
   {value: 75, title: 'react'},
-  {value: 75, title: 'Adaptive Design'},
+  {value: 75, title: 'Responsive Web Design'},
   {value: 25, title: 'Tailwind css'},
   {value: 25, title: 'TypeScript'},
   {value: 75, title: 'Figma'},
-]
+];
+
+export const EXPERIENCE = [
+  {
+    time: '08/2022 - PRESENT',
+    position: 'JUNIOR FRONT-END DEVELOPER',
+    company: 'MAIND DEV',
+    summary:
+      'Working as part of a development team on the design and implementation of software applications and sites, including current technologies and programming languages such as React, Javascript.',
+    skills: [
+      'Problem solving',
+      'Created Reusable React-components in different projects',
+      'Created HTML email templates for mailing list',
+    ],
+  },
+];
+export const EDUCATION = [
+  {
+    time: '04/2022 - 06/2022',
+    position: 'JavaScript Developer Certification',
+    company: 'freeCodeCamp.org',
+    summary:
+      'Developer Certification, representing approximately 300 hours of coursework.',
+    skills: [
+      'Built the coursework projects',
+      'Got all automated test suite',
+    ],
+  },
+  {
+    time: '06/2022 - 09/2022',
+    position: 'Front End Developer Certification',
+    company: 'freeCodeCamp.org',
+    summary:
+      'Developer Certification, representing approximately 300 hours of coursework.',
+    skills: [
+      'Built the coursework projects',
+      'Got all automated test suite',
+    ],
+  },
+];

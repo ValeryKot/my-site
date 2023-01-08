@@ -63,7 +63,7 @@ export default function MySkills() {
     <Wr>
       <div>
         {SKILLS_DATA.map((skill) => (
-          <Chart>
+          <Chart key={skill.title}>
             <CircularProgressbarWithChildren
               value={skill.value}
               styles={buildStyles({

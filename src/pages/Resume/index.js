@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import TitleSection from '../../components/ui/TitleSection';
 import {semibold, h2l, bodyMd, primaryHover, primaryLt, white} from '../../components/design';
 import ExperienceItem from '../../components/ExperienceItem';
+import { EXPERIENCE, EDUCATION } from '../../utils/static';
 
 const Wr = styled.div`
   position: relative;
@@ -32,21 +33,35 @@ const Box = styled.div`
     ${semibold};
     color: ${(props) => props.theme.title};
   }
-  > div {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-  }
+`;
+const ItemsWr = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+const ItemsCol = styled.div`
+  width: 49%;
+  display: flex;
+  flex-direction: column;
 `;
 
 function Resume() {
   return (
     <Wr>
       <TitleSection title='Resu' secondTitle='Me' subtitle='history' />
-      <Container><Box>
-      <ExperienceItem/>
-       Resume</Box></Container>
+      <Container>
+        <Box>
+          SUMMARY
+          <ItemsWr>
+            <ItemsCol>
+            {EXPERIENCE.map((exp) => <ExperienceItem time={exp.time} position={exp.position} company={exp.company} summary={exp.summary} skills={exp.skills} />)} 
+            </ItemsCol>
+            <ItemsCol>
+            {EDUCATION.map((exp) => <ExperienceItem time={exp.time} position={exp.position} company={exp.company} summary={exp.summary} skills={exp.skills} />)} 
+            </ItemsCol>
+          </ItemsWr>
+        </Box>
+      </Container>
     </Wr>
   );
 }

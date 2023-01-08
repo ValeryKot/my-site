@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { CATEGORIES } from '../../../utils/static';
 import {MenuButton} from '../Button';
 
-const Wr = styled.div`
+const Wr = styled.nav`
   width: 50px;
   height: fit-content;
   position: fixed;
