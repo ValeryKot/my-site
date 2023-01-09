@@ -35,6 +35,9 @@ const GlobalStyle = createGlobalStyle`
       -webkit-text-size-adjust: 100%;
       -webkit-tap-highlight-color: transparent;
     }
+    .ReactCollapse--collapse {
+      transition: height 500ms;
+    }
   `}
 `;
 

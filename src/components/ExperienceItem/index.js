@@ -1,7 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, {useState} from 'react';
+import styled, {css} from 'styled-components';
+import Collapse from 'react-collapse';
 import {primaryHover, white, caption, semibold, h2s, bodyMd} from '../design';
 import exp_icon from '../../images/icons/resume.svg';
+import arrow from '../../images/icons/arrow_down.svg';
 
 const Wr = styled.div`
   position: relative;
@@ -84,7 +86,50 @@ const TextBox = styled.div`
   }
 `;
 
-export default function ExperienceItem({time, position, company, summary, skills=[]}) {
+const FaqHead = styled.div`
+  width: fit-content;
+  display: block;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin: 10px 0;
+  padding: 4px 48px 4px 24px;
+  background: ${(props) => props.theme.subtitle};
+  opacity: 0.8;
+  ${(props) =>
+    props.isOpened &&
+    css`
+      opacity: 1;
+    `};
+  border-radius: 8px;
+  cursor: pointer;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: 24px;
+    top: calc(50% - 9px);
+    fill: ${(props) => props.theme.subtitle};
+    background-image: url(${arrow});
+    background-size: cover;
+    transition: transform 0.5s;
+    ${(props) =>
+      props.isOpened &&
+      css`
+        transform: rotate(180deg);
+      `};
+  }
+`;
+
+export default function ExperienceItem({
+  time,
+  position,
+  company,
+  summary,
+  skills = [],
+}) {
+  const [isOpened, setIsOpened] = useState(false);
   return (
     <Wr>
       <Icon>
@@ -92,14 +137,25 @@ export default function ExperienceItem({time, position, company, summary, skills
       </Icon>
       <TimeBox>{time}</TimeBox>
       <TitleBox>
-        {position}<span>{company}</span>
+        {position}
+        <span>{company}</span>
       </TitleBox>
-      <TextBox>{summary}
-      <ul>
-        {skills.length > 0 && skills.map((skill) =>
-          <li key={skill}>{skill}</li>
+      <TextBox>
+        {summary}
+        {skills.length > 0 && (
+          <>
+            <FaqHead isOpened={isOpened} onClick={() => setIsOpened(!isOpened)}>
+              My skills
+            </FaqHead>
+            <Collapse isOpened={isOpened}>
+              <ul>
+                {skills.map((skill) => (
+                  <li key={skill}>{skill}</li>
+                ))}
+              </ul>
+            </Collapse>
+          </>
         )}
-        </ul>
       </TextBox>
     </Wr>
   );

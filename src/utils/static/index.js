@@ -56,7 +56,8 @@ export const EXPERIENCE = [
     summary:
       'Working as part of a development team on the design and implementation of software applications and sites, including current technologies and programming languages such as React, Javascript.',
     skills: [
-      'Problem solving',
+      'Managed 4+ responsive websites from start to finish using HTML, CSS, JavaScript and React with 100% client satisfaction',
+      'Fixing bugs from existing websites and implemented enhancements that improved functionality and efficienty',
       'Created Reusable React-components in different projects',
       'Created HTML email templates for mailing list',
     ],

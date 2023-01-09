@@ -54,10 +54,14 @@ function Resume() {
           SUMMARY
           <ItemsWr>
             <ItemsCol>
-            {EXPERIENCE.map((exp) => <ExperienceItem time={exp.time} position={exp.position} company={exp.company} summary={exp.summary} skills={exp.skills} />)} 
+              {EXPERIENCE.map((exp) => (
+                <ExperienceItem {...exp} />
+              ))}
             </ItemsCol>
             <ItemsCol>
-            {EDUCATION.map((exp) => <ExperienceItem time={exp.time} position={exp.position} company={exp.company} summary={exp.summary} skills={exp.skills} />)} 
+              {EDUCATION.map((exp) => (
+                <ExperienceItem {...exp} />
+              ))}
             </ItemsCol>
           </ItemsWr>
         </Box>
