@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled, {css} from 'styled-components';
 import Collapse from 'react-collapse';
-import {primaryHover, white, caption, semibold, h2s, bodyMd} from '../design';
+import {primaryHover, white, caption, semibold, h2s, bodyMd, bodyLg} from '../design';
 import exp_icon from '../../images/icons/resume.svg';
 import arrow from '../../images/icons/arrow_down.svg';
 
@@ -60,11 +60,12 @@ const TitleBox = styled.p`
   margin-bottom: 10px;
   span {
     color: ${(props) => props.theme.title};
-    ${h2s};
+    ${bodyLg};
     ${semibold};
     opacity: 0.7;
     padding-left: 26px;
     position: relative;
+    white-space: nowrap;
   }
   & span::before {
     position: absolute;
@@ -72,17 +73,21 @@ const TitleBox = styled.p`
     width: 10px;
     height: 2px;
     background-color: ${(props) => props.theme.title};
-    left: 7px;
-    top: 13px;
+    left: 9px;
+    top: 12px;
   }
 `;
 
 const TextBox = styled.div`
   color: ${(props) => props.theme.title};
   ${bodyMd};
-  ul {
+  /* ul {
     margin-left: 20px;
     margin-top: 10px;
+  } */
+  li {
+    padding: 10px 0;
+    margin-left: 30px;
   }
 `;
 
@@ -103,6 +108,9 @@ const FaqHead = styled.div`
     `};
   border-radius: 8px;
   cursor: pointer;
+  &+.ReactCollapse--collapse {
+      transition: height 700ms cubic-bezier(0.4, 0.5, 0.3, 0.7);
+    }
   &::before {
     content: '';
     position: absolute;
@@ -128,8 +136,17 @@ export default function ExperienceItem({
   company,
   summary,
   skills = [],
+  open = false,
 }) {
-  const [isOpened, setIsOpened] = useState(false);
+  const [isOpened, setIsOpened] = useState(open);
+
+  const toggle = (event) => {
+    event.stopPropagation();
+    event.nativeEvent.stopImmediatePropagation();
+    setIsOpened(!isOpened);
+  }
+
+
   return (
     <Wr>
       <Icon>
@@ -144,10 +161,10 @@ export default function ExperienceItem({
         {summary}
         {skills.length > 0 && (
           <>
-            <FaqHead isOpened={isOpened} onClick={() => setIsOpened(!isOpened)}>
+            <FaqHead isOpened={isOpened} onClick={(e) => toggle(e)}>
               My skills
             </FaqHead>
-            <Collapse isOpened={isOpened}>
+            <Collapse  isOpened={isOpened}>
               <ul>
                 {skills.map((skill) => (
                   <li key={skill}>{skill}</li>

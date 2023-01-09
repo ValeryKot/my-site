@@ -41,6 +41,7 @@ const ItemsWr = styled.div`
 `;
 const ItemsCol = styled.div`
   width: 49%;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
 `;

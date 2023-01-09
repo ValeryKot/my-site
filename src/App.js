@@ -13,6 +13,7 @@ import {ThemeButton} from './components/ui/Button';
 import Nav from './components/ui/Nav';
 import About from './pages/About';
 import Home from './pages/Home';
+import Projects from './pages/Projects';
 import Resume from './pages/Resume';
 
 const GlobalStyle = createGlobalStyle`
@@ -34,9 +35,6 @@ const GlobalStyle = createGlobalStyle`
       -webkit-font-smoothing: antialiased;
       -webkit-text-size-adjust: 100%;
       -webkit-tap-highlight-color: transparent;
-    }
-    .ReactCollapse--collapse {
-      transition: height 500ms;
     }
   `}
 `;
@@ -75,8 +73,9 @@ function App() {
         <ThemeButton toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
         <Nav page={page} setPage={setPage} />
         {page === 'HOME' && <Home />}
-        {page === 'ABOUT' && <About/>}
-        {page === 'RESUME' && <Resume/>}
+        {page === 'ABOUT' && <About />}
+        {page === 'RESUME' && <Resume />}
+        {page === 'PROJECTS' && <Projects />}
       </React.StrictMode>
     </ThemeProvider>
   );

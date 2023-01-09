@@ -61,6 +61,7 @@ export const EXPERIENCE = [
       'Created Reusable React-components in different projects',
       'Created HTML email templates for mailing list',
     ],
+    open: true,
   },
 ];
 export const EDUCATION = [

@@ -11,7 +11,7 @@ const fontSizeLineHeight = {
   hl: [50, 60, 1],
   hm: [40, 48, 1],
   hs: [30, 36, 1],
-  bodyLg: [16, 35, 2],
+  bodyLg: [18, 35, 2],
   bodyMd: [16, 24, 2],
   bodySm: [14, 20, 2],
   caption: [12, 16, 2],
