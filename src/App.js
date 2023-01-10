@@ -65,6 +65,8 @@ function App() {
     setTheme(isDarkTheme ? 'light' : 'dark');
   };
 
+  // ADD LAZY AND LOADER!!!
+
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <React.StrictMode>
