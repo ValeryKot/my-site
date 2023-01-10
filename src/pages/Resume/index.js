@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import TitleSection from '../../components/ui/TitleSection';
-import {semibold, h2l, bodyMd, primaryHover, primaryLt, white} from '../../components/design';
+import {semibold, h2l} from '../../components/design';
 import ExperienceItem from '../../components/ExperienceItem';
 import { EXPERIENCE, EDUCATION } from '../../utils/static';
 
@@ -56,12 +56,12 @@ function Resume() {
           <ItemsWr>
             <ItemsCol>
               {EXPERIENCE.map((exp) => (
-                <ExperienceItem {...exp} />
+                <ExperienceItem key={exp.time} {...exp} />
               ))}
             </ItemsCol>
             <ItemsCol>
               {EDUCATION.map((exp) => (
-                <ExperienceItem {...exp} />
+                <ExperienceItem key={exp.time} {...exp} />
               ))}
             </ItemsCol>
           </ItemsWr>

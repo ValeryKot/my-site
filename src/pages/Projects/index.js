@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { PROJECTS_DATA as data } from '../../utils/static';
+import ProjectsFilter from '../../components/ProjectsFilter';
 import TitleSection from '../../components/ui/TitleSection';
 
 const Wr = styled.div`
@@ -20,7 +22,9 @@ function Projects() {
   return (
     <Wr>
       <TitleSection title='My ' secondTitle='portfolio' subtitle='works' />
-      <Container>Projects</Container>
+      <Container>
+      <ProjectsFilter data={data}/>
+      </Container>
     </Wr>
   );
 }

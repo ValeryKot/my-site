@@ -88,3 +88,36 @@ export const EDUCATION = [
     ],
   },
 ];
+
+export const PROJECTS_DATA = [
+  {
+    category: 'projects',
+    title: 'OAZIZ',
+    type: 'Web application',
+    technology: ['HTML', 'CSS', 'JavaScript', 'React.JS'],
+    libraries: ['Apollo Client', 'GraphQL', 'Styled Components', 'Swiper.JS'],
+    client: 'OAZIZ Ecosystem',
+    link: 'https://oaziz.merkeleon.com/',
+    file: require('../../images/pr_1.png'),
+  },
+  {
+    category: 'projects',
+    title: 'FAIR-TAXES',
+    type: 'Website',
+    technology: ['HTML', 'CSS', 'JavaScript', 'React.JS'],
+    libraries: ['Tailwind CSS', 'Swiper.JS'],
+    client: 'FAIR TAXES',
+    link: 'https://fair-taxes.ru/',
+    file: require('../../images/pr_2.png'),
+  },
+  {
+    category: 'youtube',
+    title: 'Ulbi TV',
+    type: 'Youtube channel',
+    technology: ['JavaScript', 'React.JS', 'Front-end', 'Back-end', 'Databases'],
+    libraries: [],
+    client: '',
+    link: 'https://www.youtube.com/@UlbiTV',
+    file: require('../../images/video_1.png'),
+  },
+];
