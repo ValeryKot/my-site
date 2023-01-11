@@ -97,12 +97,12 @@ export default function ProjectsFilter({data}) {
 
   return (
     <Wr>
-      <Modal
+      {active && <Modal
         active={active}
         onClose={closeModal}
         data={modalData}
-        width={'300px'}
-      />
+        // width={'300px'}
+      />}
       <ButtonBox>
         {buttons.map((btn, index) => (
           <FilterButton
