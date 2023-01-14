@@ -12,6 +12,7 @@ import {
 import {ThemeButton} from './components/ui/Button';
 import Nav from './components/ui/Nav';
 import About from './pages/About';
+import Contact from './pages/Contact';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Resume from './pages/Resume';
@@ -78,6 +79,7 @@ function App() {
         {page === 'ABOUT' && <About />}
         {page === 'RESUME' && <Resume />}
         {page === 'PROJECTS' && <Projects />}
+        {page === 'CONTACT' && <Contact />}
       </React.StrictMode>
     </ThemeProvider>
   );

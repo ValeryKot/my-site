@@ -7,6 +7,7 @@ import blog_icon from '../../images/icons/blog.svg';
 
 export const PHONE = '+375336320623';
 export const E_MAIL = 'kot.valery@gmail.com';
+export const ADDRESS = "Plehanova street, Minsk, \nRepublic of Belarus, 220085";
 export const GITHUB = 'https://github.com/ValeryKot';
 
 export const CATEGORIES = [

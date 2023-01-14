@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {motion, AnimatePresence} from 'framer-motion';
-import {bodyMd, bold, h2s, primaryHover, semibold} from '../design';
+import {bodyMd, bold, h2s, primaryHover, semibold, white} from '../design';
 import {FilterButton} from './FilterButton';
 import {Modal} from '../Modal';
 
@@ -30,6 +30,7 @@ const Cards = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: 105%;
+  filter: brightness(90%);
   width: 30%;
   margin: 15px;
   height: 225px;
@@ -39,9 +40,11 @@ const Cards = styled.div`
   border-radius: 16px;
 `;
 const InsideText = styled.p`
-  color: ${(props) => props.theme.title};
+  /* color: ${(props) => props.theme.title}; */
+  color: ${white};
   ${h2s};
   ${bold};
+  filter: brightness(100%);
 `;
 
 const textMotion = {
