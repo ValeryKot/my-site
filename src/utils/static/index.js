@@ -9,6 +9,8 @@ export const PHONE = '+375336320623';
 export const E_MAIL = 'kot.valery@gmail.com';
 export const ADDRESS = "Plehanova street, Minsk, \nRepublic of Belarus, 220085";
 export const GITHUB = 'https://github.com/ValeryKot';
+export const FEEDBACK =
+  'https://script.google.com/macros/s/AKfycbwPAPHFUW4zhLM03GAGO3SlL8pLqefysdSOZIXO8VqJNgEDTC-LL2Qk_H0b9xErfcY/exec';
 
 export const CATEGORIES = [
   {title: 'Home', icon: home_icon, value: 'HOME'},
