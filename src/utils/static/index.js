@@ -4,11 +4,21 @@ import resume_icon from '../../images/icons/resume.svg';
 import projects_icon from '../../images/icons/projects.svg';
 import contact_icon from '../../images/icons/contact.svg';
 import blog_icon from '../../images/icons/blog.svg';
+import fb_icon from '../../images/icons/facebook.svg';
+import tw_icon from '../../images/icons/twitter.svg';
+import li_icon from '../../images/icons/linkid.svg';
+import tg_icon from '../../images/icons/telegram.svg';
+
 
 export const PHONE = '+375336320623';
 export const E_MAIL = 'kot.valery@gmail.com';
 export const ADDRESS = "Plehanova street, Minsk, \nRepublic of Belarus, 220085";
 export const GITHUB = 'https://github.com/ValeryKot';
+export const FACEBOOK = 'https://www.facebook.com/kot.valery';
+export const TWITTER= 'https://twitter.com/Cyborcatt';
+export const LINKEDIN= 'https://www.linkedin.com/in/valerykot/';
+export const TELEGRAM= 'https://t.me/Valery_iKot';
+
 export const FEEDBACK =
   'https://script.google.com/macros/s/AKfycbwPAPHFUW4zhLM03GAGO3SlL8pLqefysdSOZIXO8VqJNgEDTC-LL2Qk_H0b9xErfcY/exec';
 
@@ -35,6 +45,13 @@ export const PERSONAL_INFO = [
   {title: 'Email:', value: E_MAIL, link: `mailto:${E_MAIL}`},
   {title: 'GitHub:', value: 'ValeryKot', link: GITHUB},
   {title: 'Languages:', value: 'Russian, English(A1)'},
+];
+
+export const SOCIAL_LINKS = [
+  {icon: fb_icon, link: FACEBOOK},
+  {icon: tw_icon, link: TWITTER},
+  {icon: li_icon, link: LINKEDIN},
+  {icon: tg_icon, link: TELEGRAM},
 ];
 
 export const STATS_DATA = [

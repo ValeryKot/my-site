@@ -11,6 +11,7 @@ import { ADDRESS, PHONE, E_MAIL } from '../../utils/static';
 import map_icon from '../../images/icons/map.svg';
 import letter_icon from '../../images/icons/letter.svg';
 import phone_icon from '../../images/icons/phone.svg';
+import ContactSocial from '../ContactSocial';
 
 const Wr = styled.div`
   width: 33.3%;
@@ -81,6 +82,7 @@ export default function ContactInfo() {
         <span>CALL ME</span>
         <a href={`tel:${PHONE}`} target='_blank' rel='noreferrer'>{PHONE}</a>
       </TextAddress>
+      <ContactSocial/>
     </Wr>
   );
 }
