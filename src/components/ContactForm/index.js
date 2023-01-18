@@ -1,6 +1,8 @@
 import React, {useReducer, useRef, useState} from 'react';
 import styled from 'styled-components';
 import {FEEDBACK} from '../../utils/static';
+import formReducer from '../../utils/reducers/formReducer';
+import formValidityReducer from '../../utils/reducers/formValidityReducer';
 import Input from '../Input';
 import InputArea from '../InputArea';
 
@@ -14,18 +16,6 @@ const Wr = styled.div`
     gap: 20px;
   }
 `;
-
-const formReducer = (state, action) => {
-  switch (action.type) {
-    case 'HANDLE_INPUT':
-      return {
-        ...state,
-        [action.field]: action.payload,
-      };
-    default:
-      return state;
-  }
-};
 
 const initialFormState = {
   name: '',
@@ -41,82 +31,32 @@ const initialValidityState = {
   isFormValid: false,
 };
 
-const formValidityReducer = (state, action) => {
-  let isValid = false;
-  switch (action.type) {
-    case 'VALIDATE_NAME':
-      isValid = action.payLoad.name.length > 1 ? true : false;
-      return {
-        ...state,
-        ...{
-          nameError: !isValid,
-          isFormValid:
-            isValid &&
-            !state.nameError &&
-            !state.subjectError &&
-            !state.emailError,
-        },
-      };
-    case 'VALIDATE_SUBJECT':
-      isValid = action.payLoad.subject.length > 1 ? true : false;
-      return {
-        ...state,
-        ...{
-          subjectError: !isValid,
-          isFormValid:
-            isValid &&
-            !state.nameError &&
-            !state.subjectError &&
-            !state.emailError,
-        },
-      };
-    case 'VALIDATE_EMAIL':
-      isValid =
-        action.payLoad.email.length > 0 &&
-        /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(
-          action.payLoad.email
-        )
-          ? true
-          : false;
-      return {
-        ...state,
-        ...{
-          emailError: !isValid,
-          isFormValid:
-            isValid &&
-            !state.nameError &&
-            !state.subjectError &&
-            !state.emailError,
-        },
-      };
-    default:
-      return state;
-  }
-};
-
 export default function ContactForm() {
-  const [formState, dispatch] = useReducer(formReducer, initialFormState);
+  const [formState, setFormState] = useReducer(formReducer, initialFormState);
   const [formValidityData, setFormValidityData] = useReducer(
     formValidityReducer,
     initialValidityState
   );
   const [loading, setLoading] = useState(false);
   const formRef = useRef(null);
-  const scriptUrl = FEEDBACK;
 
   const handleChange = (e) => {
-    dispatch({
+    setFormState({
       type: 'HANDLE_INPUT',
       field: e.target.name,
       payload: e.target.value,
     });
   };
 
+  const validate = (type, state) => {
+    setFormValidityData({type: type, payLoad: state});
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
 
-    fetch(scriptUrl, {
+    fetch(FEEDBACK, {
       method: 'POST',
       body: new FormData(formRef.current),
     })
@@ -135,13 +75,9 @@ export default function ContactForm() {
           name='name'
           value={formState.name}
           onChange={(e) => handleChange(e)}
-          onBlur={(e) =>
-            setFormValidityData({type: 'VALIDATE_NAME', payLoad: formState})
-          }
+          onBlur={() => validate('VALIDATE_NAME', formState)}
           required
-          error={
-            formValidityData.nameError && 'Must be more than one character'
-          }
+          error={formValidityData.nameError}
         />
         <Input
           title='YOUR Email'
@@ -149,26 +85,18 @@ export default function ContactForm() {
           name='email'
           value={formState.email}
           onChange={(e) => handleChange(e)}
-          onBlur={(e) =>
-            setFormValidityData({type: 'VALIDATE_EMAIL', payLoad: formState})
-          }
+          onBlur={() => validate('VALIDATE_EMAIL', formState)}
           required
-          error={
-            formValidityData.emailError && 'Please fill in the correct email'
-          }
+          error={formValidityData.emailError}
         />
         <Input
           title='YOUR Subject'
           name='subject'
           value={formState.subject}
           onChange={(e) => handleChange(e)}
-          onBlur={(e) =>
-            setFormValidityData({type: 'VALIDATE_SUBJECT', payLoad: formState})
-          }
+          onBlur={() => validate('VALIDATE_SUBJECT', formState)}
           required
-          error={
-            formValidityData.subjectError && 'Must be more than one character'
-          }
+          error={formValidityData.subjectError}
         />
         <InputArea
           title='YOUR Message'

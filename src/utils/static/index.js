@@ -12,6 +12,9 @@ export const GITHUB = 'https://github.com/ValeryKot';
 export const FEEDBACK =
   'https://script.google.com/macros/s/AKfycbwPAPHFUW4zhLM03GAGO3SlL8pLqefysdSOZIXO8VqJNgEDTC-LL2Qk_H0b9xErfcY/exec';
 
+export const EMAIL_REGEXP = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+
 export const CATEGORIES = [
   {title: 'Home', icon: home_icon, value: 'HOME'},
   {title: 'About', icon: about_icon, value: 'ABOUT'},

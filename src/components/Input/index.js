@@ -1,6 +1,13 @@
 import React from 'react';
 import styled, {css} from 'styled-components';
-import { bodyLg, bodyMd, primaryHover, secondary, semibold } from '../design';
+import {
+  bodyLg,
+  bodyMd,
+  primaryHover,
+  secondary,
+  secondaryLt,
+  semibold,
+} from '../design';
 
 const Wr = styled.div`
   position: relative;
@@ -20,7 +27,7 @@ const InputContainer = styled.div`
   & input {
     width: 100%;
     background: ${(props) => props.theme.gradientMid};
-    border: 1px solid ${secondary};
+    border: 1px solid ${secondaryLt};
     color: ${(props) => props.theme.title};
     ${bodyLg};
     padding: 8px 23px;
@@ -29,6 +36,12 @@ const InputContainer = styled.div`
     outline-offset: 0;
     transition: 0.3s;
   }
+  /* & input:-internal-autofill-selected {
+  background-color: ${(props) => props.theme.gradientMid} !important;
+    border: 1px solid ${secondaryLt} !important;
+    color: ${(props) => props.theme.title} !important;
+    appearance: inherit;
+} */
   & input:focus {
     border: 1px solid ${primaryHover};
   }
@@ -51,6 +64,25 @@ const InputContainer = styled.div`
     top: -4px;
     left: 23px;
     font-size: 10px;
+  }
+  /* Remove AUTOFILL styles */
+  input:-webkit-autofill::first-line {
+    color: ${(props) => props.theme.title};
+  }
+  input:-webkit-autofill {
+    /* Expose a hook for JavaScript when auto fill is shown. */
+    /* JavaScript can capture 'animationstart' events */
+    animation-name: onAutoFillStart;
+
+    /* Delay the autofill background color from appearing */
+    transition: background-color 0s 86400s;
+    color: ${(props) => props.theme.title};
+  }
+
+  input:not(:-webkit-autofill) {
+    /* Expose a hook for JS onAutoFillCancel */
+    /* JavaScript can capture 'animationstart' events */
+    animation-name: onAutoFillCancel;
   }
 `;
 
