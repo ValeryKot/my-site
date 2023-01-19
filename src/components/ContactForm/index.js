@@ -5,6 +5,8 @@ import formReducer from '../../utils/reducers/formReducer';
 import formValidityReducer from '../../utils/reducers/formValidityReducer';
 import Input from '../Input';
 import InputArea from '../InputArea';
+import ActionButton from '../ui/Button/ActionButton';
+import send_icon from '../../images/icons/contact.svg';
 
 const Wr = styled.div`
   width: 66.7%;
@@ -112,6 +114,7 @@ export default function ContactForm() {
             value={loading ? 'Loading...' : 'SEND MESSAGE'}
           />
         )}
+        <ActionButton title="Send message" icon={send_icon} />
       </form>
     </Wr>
   );

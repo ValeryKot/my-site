@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
 import {h1l, primaryHover, bodyLg} from '../../components/design';
+import { ActionButton } from '../../components/ui/Button';
+import more_icon from '../../images/icons/more.svg'
 
 const Wr = styled.div`
   position: relative;
@@ -86,7 +88,7 @@ const TextWr = styled.div`
   }
 `;
 
-function Home() {
+function Home({setPage}) {
   return (
     <Wr>
     <Avatar
@@ -115,7 +117,7 @@ function Home() {
             & user‑friendly experiences, I am passionate about building
             excellent software that improves the lives of those around me.
           </p>
-          <button style={{padding: '10px'}}>About</button>
+          <ActionButton title="About me" icon={more_icon} value={'ABOUT'} setPage={setPage} />
         </TextWr>
       </TextContainer>
     </Wr>

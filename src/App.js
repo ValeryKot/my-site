@@ -75,7 +75,7 @@ function App() {
         <DesignSystem />
         <ThemeButton toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
         <Nav page={page} setPage={setPage} />
-        {page === 'HOME' && <Home />}
+        {page === 'HOME' && <Home setPage={setPage}  />}
         {page === 'ABOUT' && <About />}
         {page === 'RESUME' && <Resume />}
         {page === 'PROJECTS' && <Projects />}
