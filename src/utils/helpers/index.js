@@ -15,3 +15,13 @@ export const getStyle = (element) => {
   let variable = element.split(/[(,)]/).slice(1,2).toString();
   return getComputedStyle(document.documentElement).getPropertyValue(variable);
 };
+
+export const findKeys = (obj) => {
+  const entries = Object.entries(obj);
+  for (const [key, value] of entries) {
+    if (key > 0 && value.guid !== '') {
+      return value.guid;
+    }
+  }
+  return '';
+};

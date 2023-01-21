@@ -15,9 +15,12 @@ export const E_MAIL = 'kot.valery@gmail.com';
 export const ADDRESS = "Plehanova street, Minsk, \nRepublic of Belarus, 220085";
 export const GITHUB = 'https://github.com/ValeryKot';
 export const FACEBOOK = 'https://www.facebook.com/kot.valery';
-export const TWITTER= 'https://twitter.com/Cyborcatt';
-export const LINKEDIN= 'https://www.linkedin.com/in/valerykot/';
-export const TELEGRAM= 'https://t.me/Valery_iKot';
+export const TWITTER = 'https://twitter.com/Cyborcatt';
+export const LINKEDIN = 'https://www.linkedin.com/in/valerykot/';
+export const TELEGRAM = 'https://t.me/Valery_iKot';
+
+export const WP_API =
+  'https://public-api.wordpress.com/rest/v1.1/sites/213749495/posts/';
 
 export const FEEDBACK =
   'https://script.google.com/macros/s/AKfycbwPAPHFUW4zhLM03GAGO3SlL8pLqefysdSOZIXO8VqJNgEDTC-LL2Qk_H0b9xErfcY/exec';

@@ -14,6 +14,7 @@ import Nav from './components/ui/Nav';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
+import MyBlog from './pages/MyBlog';
 import Projects from './pages/Projects';
 import Resume from './pages/Resume';
 
@@ -80,6 +81,7 @@ function App() {
         {page === 'RESUME' && <Resume />}
         {page === 'PROJECTS' && <Projects />}
         {page === 'CONTACT' && <Contact />}
+        {page === 'BLOG' && <MyBlog />}
       </React.StrictMode>
     </ThemeProvider>
   );
