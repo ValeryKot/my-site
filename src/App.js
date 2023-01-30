@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {css, createGlobalStyle, ThemeProvider} from 'styled-components';
-import DesignSystem from './components/design';
+import DesignSystem, {areaLt} from './components/design';
 import {
   white,
   dark,
@@ -47,6 +47,7 @@ const darkTheme = {
   subtitle: secondary,
   gradientEnd: dark,
   gradientMid: secondary,
+  lights: primaryLt,
   mode: 'dark',
 };
 const lightTheme = {
@@ -55,6 +56,7 @@ const lightTheme = {
   subtitle: secondaryLt,
   gradientEnd: white,
   gradientMid: white,
+  lights: areaLt,
   mode: 'light',
 };
 

@@ -10,6 +10,7 @@ export const [
   secondary,
   secondaryHover,
   secondaryLt,
+  areaLt,
   success,
   
 ] = [
@@ -22,6 +23,7 @@ export const [
   'var(--secondary)',
   'var(--secondaryHover)',
   'var(--secondaryLt)',
+  'var(--areaLt)',
   'var(--success)',
   
 ];
@@ -35,6 +37,7 @@ const hashes = {
   secondary: '#323232',
   secondaryHover: '#252525',
   secondaryLt: '#8F8F8F',
+  areaLt: '#e0e0e0',
   success: '#5BE85B',
 };
 

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import {primaryHover} from '../../../design';
 
 const Wr = styled.a`
-  display: inline-block;
   height: 40px;
   width: 40px;
   transition: 0.3s;

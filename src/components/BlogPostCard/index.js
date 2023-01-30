@@ -58,7 +58,9 @@ export default function BlogPostCard({image, title, body}) {
       <Tumb image={image} />
       <TextBox>
         <h3>{title}</h3>
-        <p>{body}</p>
+        <p>
+          {body.replace(/<\/?[a-zA-Z]+>/gi, '').replace('&#8211; ', ' - ')}
+        </p>
       </TextBox>
     </Wr>
   );

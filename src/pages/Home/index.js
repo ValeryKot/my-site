@@ -1,9 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
-import {h1l, primaryHover, bodyLg} from '../../components/design';
-import { ActionButton } from '../../components/ui/Button';
-import more_icon from '../../images/icons/more.svg'
+import {
+  h1l,
+  primaryHover,
+  secondaryHover,
+  bodyLg,
+  BPT,
+  h1m,
+  h1s,
+  bodyMd,
+  bodySm,
+} from '../../components/design';
+import {ActionButton} from '../../components/ui/Button';
+import more_icon from '../../images/icons/more.svg';
 
 const Wr = styled.div`
   position: relative;
@@ -20,44 +30,45 @@ const Wr = styled.div`
     ${(props) => props.theme.gradientMid} 80.7%,
     ${primaryHover} 81.85%
   );
-/* 
-  &::before {
-    content: '';
-    position: absolute;
-    z-index: 11;
-    top: 64px;
-    left: 64px;
-    width: 33.34%;
-    height: calc(100vh - 128px);
-    border-radius: 30px;
-    background-image: image-set(
-      url(${require('../../images/myPhoto.jpg')}) 1x,
-      url(${require('../../images/myPhoto2x.jpg')}) 2x
-    );
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    filter: drop-shadow(2px 2px 7px rgba(0, 0, 0, 0.8));
-  } */
+  @media ${BPT.lg} {
+    background: ${(props) => props.theme.body};
+  }
 `;
 
 const Avatar = styled.div`
-
-    position: absolute;
-    z-index: 11;
-    top: 64px;
-    left: 64px;
-    width: 33.34%;
-    height: calc(100vh - 128px);
-    border-radius: 30px;
-    background-image: image-set(
-      url(${require('../../images/myPhoto.jpg')}) 1x,
-      url(${require('../../images/myPhoto2x.jpg')}) 2x
-    );
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    filter: drop-shadow(2px 2px 7px rgba(0, 0, 0, 0.8));
+  position: absolute;
+  z-index: 11;
+  top: 64px;
+  left: 64px;
+  width: 33.34%;
+  height: calc(100vh - 128px);
+  border-radius: 30px;
+  background-image: image-set(
+    url(${require('../../images/myPhoto.jpg')}) 1x,
+    url(${require('../../images/myPhoto2x.jpg')}) 2x
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(2px 2px 7px rgba(0, 0, 0, 0.8));
+  @media ${BPT.lg} {
+    border-radius: 50%;
+    top: 10%;
+    left: calc(50% - 135px);
+    width: 270px;
+    height: 270px;
+    border: 4px solid ${(props) => props.theme.lights};
+    background-size: 95%;
+  }
+  @media ${BPT.xs} {
+    border-radius: 50%;
+    top: 10%;
+    left: calc(50% - 110px);
+    width: 220px;
+    height: 220px;
+    border: 3px solid ${(props) => props.theme.lights};
+    background-size: 90%;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -65,6 +76,18 @@ const TextContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 66.6%;
+  padding: 0 84px;
+  @media ${BPT.lg} {
+    position: absolute;
+    top: calc(15% + 270px);
+    width: 95%;
+    padding: 0;
+  }
+  @media ${BPT.xs} {
+    top: calc(15% + 220px);
+    width: 95%;
+    padding: 0;
+  }
 `;
 
 const TextWr = styled.div`
@@ -73,10 +96,21 @@ const TextWr = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 25px;
+  @media ${BPT.lg} {
+    gap: 10px;
+    align-items: center;
+  }
   & h1 {
     ${h1l};
     color: ${(props) => props.theme.title};
     text-align: left;
+    @media ${BPT.lg} {
+      ${h1m};
+      text-align: center;
+    }
+    @media ${BPT.md} {
+      ${h1s};
+    }
   }
   & span {
     color: ${primaryHover};
@@ -85,6 +119,17 @@ const TextWr = styled.div`
     ${bodyLg};
     color: ${(props) => props.theme.title};
     text-align: left;
+    @media ${BPT.lg} {
+      text-align: center;
+      padding: 0 16px;
+    }
+    @media ${BPT.sm} {
+      ${bodyMd};
+    }
+    @media ${BPT.sm} {
+      ${bodySm};
+      text-align: center;
+    }
   }
 `;
 
