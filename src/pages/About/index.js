@@ -5,6 +5,7 @@ import MySkills from '../../components/MySkills';
 import StatsBox from '../../components/StatsBox';
 import TitleSection from '../../components/ui/TitleSection';
 import { Separator } from '../../components/ui/Separator';
+import {BPT} from '../../components/design';
 
 const Wr = styled.div`
   position: relative;
@@ -18,11 +19,20 @@ const Container = styled.div`
   max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
+  @media ${BPT.lg} {
+    padding: 0 24px;
+  };
+  @media ${BPT.md} {
+    padding: 0 16px;
+  };
 `;
 const InfoContainer = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  @media ${BPT.lg} {
+    gap: 32px;
+  };
 `;
 
 function About() {

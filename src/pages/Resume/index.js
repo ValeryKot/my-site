@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import TitleSection from '../../components/ui/TitleSection';
-import {semibold, h2l} from '../../components/design';
+import {BPT, semibold, h2l} from '../../components/design';
 import ExperienceItem from '../../components/ExperienceItem';
 import { EXPERIENCE, EDUCATION } from '../../utils/static';
 
@@ -38,12 +38,18 @@ const ItemsWr = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  @media ${BPT.lg} {
+  flex-wrap: wrap;
+  }
 `;
 const ItemsCol = styled.div`
   width: 49%;
   padding: 0 20px;
   display: flex;
   flex-direction: column;
+  @media ${BPT.lg} {
+  width: 100%;
+  }
 `;
 
 function Resume() {

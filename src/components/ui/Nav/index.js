@@ -27,9 +27,13 @@ const Wr = styled.nav`
     border-radius: 0;
     flex-direction: row;
     justify-content: space-evenly;
+    gap: 10px;
     padding: 8px;
     z-index: 10;
     background: ${(props) => props.theme.lights};
+  }
+  @media ${BPT.xs} {
+    gap: 2px;
   }
 `;
 

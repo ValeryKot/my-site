@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import {primaryHover, white, bodyMd} from '../../../design';
+import {BPT, primaryHover, white, bodyMd} from '../../../design';
 
 const Wr = styled.div`
   width: 50px;
+  min-width: 50px;
   height: 50px;
   position: relative;
   border-radius: 50%;
@@ -42,6 +43,16 @@ const Wr = styled.div`
   }
   & img {
     position: absolute;
+  }
+  @media ${BPT.lg} {
+    &:hover h2 {
+      opacity: 0;
+    }
+  };
+  @media ${BPT.xs} {
+    width: 45px;
+  min-width: 45px;
+  height: 45px;
   }
 `;
 

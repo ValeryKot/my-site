@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {motion, AnimatePresence} from 'framer-motion';
-import {bodyMd, bold, h2s, primaryHover, semibold, white} from '../design';
+import {BPT, bodyMd, bold, h2s, primaryHover, semibold, white} from '../design';
 import {FilterButton} from './FilterButton';
 import {Modal} from '../Modal';
 
@@ -33,11 +33,15 @@ const Cards = styled.div`
   filter: brightness(90%);
   width: 30%;
   margin: 15px;
-  height: 225px;
+  aspect-ratio: 325 / 225;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 16px;
+  @media ${BPT.md} {
+  width: 45%;
+
+  }
 `;
 const InsideText = styled.p`
   /* color: ${(props) => props.theme.title}; */

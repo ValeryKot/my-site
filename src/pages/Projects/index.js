@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { PROJECTS_DATA as data } from '../../utils/static';
+import {PROJECTS_DATA as data} from '../../utils/static';
 import ProjectsFilter from '../../components/ProjectsFilter';
 import TitleSection from '../../components/ui/TitleSection';
 
@@ -10,6 +10,7 @@ const Wr = styled.div`
   width: 100%;
   min-height: 100vh;
   background-color: ${(props) => props.theme.body};
+  padding-bottom: 95px;
 `;
 
 const Container = styled.div`

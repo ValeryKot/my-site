@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {bold, bodyMd, hl, primaryHover, primaryLt, regular} from '../design';
+import {BPT, bold, bodyMd, hl, primaryHover, primaryLt, regular} from '../design';
 import {fromDate} from '../../utils/helpers';
 import { STATS_DATA } from '../../utils/static';
 
@@ -9,6 +9,10 @@ const Wr = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+  @media ${BPT.lg} {
+  width: 100%;
+  gap: 16px;
+  }
 `;
 
 const Box = styled.div`
@@ -46,6 +50,9 @@ const Box = styled.div`
     width: 30px;
     height: 1px;
     background-color: ${primaryLt};
+  }
+  @media ${BPT.xs} {
+    width: 100%;
   }
 `;
 

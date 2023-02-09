@@ -1,5 +1,6 @@
 import React, {useReducer, useRef, useState} from 'react';
 import styled from 'styled-components';
+import {BPT} from '../design';
 import {FEEDBACK} from '../../utils/static';
 import formReducer from '../../utils/reducers/formReducer';
 import formValidityReducer from '../../utils/reducers/formValidityReducer';
@@ -9,13 +10,16 @@ import ActionButton from '../ui/Button/ActionButton';
 import send_icon from '../../images/icons/contact.svg';
 
 const Wr = styled.div`
-  width: 66.7%;
+  width: 65%;
   display: flex;
   flex-direction: column;
   & form {
     display: flex;
     flex-direction: column;
     gap: 20px;
+  }
+  @media ${BPT.lg} {
+  width: 100%;
   }
 `;
 

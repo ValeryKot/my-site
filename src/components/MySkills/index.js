@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {semibold, h2l, bodyMd, primaryHover, primaryLt, white} from '../../components/design';
+import {BPT, semibold, h2l, bodyMd, primaryHover, primaryLt, white} from '../../components/design';
 import {
   CircularProgressbarWithChildren,
   buildStyles,
@@ -47,6 +47,9 @@ const Chart = styled.div`
     text-transform: uppercase;
     text-align: center;
   }
+  @media ${BPT.md} {
+    width: calc(50% - 30px);
+  };
 `;
 const Percent = styled.span`
   margin-top: -15px;

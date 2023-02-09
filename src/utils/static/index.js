@@ -12,7 +12,7 @@ import tg_icon from '../../images/icons/telegram.svg';
 
 export const PHONE = '+375336320623';
 export const E_MAIL = 'kot.valery@gmail.com';
-export const ADDRESS = "Plehanova street, Minsk, \nRepublic of Belarus, 220085";
+export const ADDRESS = "Plehanova street, Minsk, Republic of Belarus, 220085";
 export const GITHUB = 'https://github.com/ValeryKot';
 export const FACEBOOK = 'https://www.facebook.com/kot.valery';
 export const TWITTER = 'https://twitter.com/Cyborcatt';

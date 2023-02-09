@@ -4,7 +4,6 @@ import {motion} from 'framer-motion';
 import {
   h1l,
   primaryHover,
-  secondaryHover,
   bodyLg,
   BPT,
   h1m,

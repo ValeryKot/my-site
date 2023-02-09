@@ -1,20 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
+  BPT,
   semibold,
   h2l,
   bodyMd,
   primaryHover,
   regular,
 } from '../../components/design';
-import { ADDRESS, PHONE, E_MAIL } from '../../utils/static';
+import {ADDRESS, PHONE, E_MAIL} from '../../utils/static';
 import map_icon from '../../images/icons/map.svg';
 import letter_icon from '../../images/icons/letter.svg';
 import phone_icon from '../../images/icons/phone.svg';
 import ContactSocial from '../ContactSocial';
 
 const Wr = styled.div`
-  width: 33.3%;
+  width: 32%;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -25,9 +26,16 @@ const Wr = styled.div`
     ${semibold};
     color: ${(props) => props.theme.title};
   }
+  @media ${BPT.lg} {
+    width: 100%;
+    & br {
+      display: none;
+    }
+  }
 `;
 
 const TextBox = styled.div`
+  width: 100%;
   color: ${(props) => props.theme.title};
   ${bodyMd};
 `;
@@ -59,6 +67,9 @@ const TextAddress = styled.p`
     text-decoration: none;
     color: ${(props) => props.theme.title};
   }
+  & a > br {
+      display: none;
+    }
 `;
 
 export default function ContactInfo() {

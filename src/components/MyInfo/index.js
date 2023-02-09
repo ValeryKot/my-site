@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {semibold, h2l, bodyMd, success} from '../../components/design';
+import {BPT, semibold, h2l, bodyMd, success} from '../../components/design';
 import {PERSONAL_INFO} from '../../utils/static';
 import { ActionButton } from '../ui/Button';
 import dwn_icon from '../../images/icons/download.svg'
@@ -39,6 +39,9 @@ const Wr = styled.div`
     opacity: 0.7;
     text-transform: capitalize;
   }
+  @media ${BPT.lg} {
+    width: 100%;
+  };
 `;
 
 export default function MyInfo() {

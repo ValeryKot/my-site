@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {h2m, bodyMd, regular, primaryHover, semibold} from '../design';
+import {BPT, h2m, bodyMd, regular, primaryHover, semibold} from '../design';
 
 const Wr = styled.div`
   display: block;
@@ -12,6 +12,15 @@ const Wr = styled.div`
   margin-bottom: 30px;
   flex: 0 0 auto;
   width: 33%;
+  @media ${BPT.xl} {
+    width: 30%;
+  }
+  @media ${BPT.lg} {
+    width: 50%;
+  }
+  @media ${BPT.md} {
+    width: 100%;
+  }
 `;
 
 const Tumb = styled.div`
@@ -35,6 +44,7 @@ const Tumb = styled.div`
 `;
 
 const TextBox = styled.div`
+  position: relative;
   background-color: ${(props) => props.theme.gradientMid};
   padding: 20px 25px 25px;
   border-radius: 0 0 5px 5px;
@@ -49,6 +59,18 @@ const TextBox = styled.div`
     ${bodyMd};
     ${regular};
     color: ${(props) => props.theme.title};
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    width: inherit;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border-radius: 0 0 5px 5px;
+    background: linear-gradient(0deg,  ${(props) => props.theme.gradientMid} 0%, rgba(0, 0, 0, 0) 80%);
   }
 `;
 
