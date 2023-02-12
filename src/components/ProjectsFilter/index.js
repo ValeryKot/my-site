@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {motion, AnimatePresence} from 'framer-motion';
-import {BPT, bodyMd, bold, h2s, primaryHover, semibold, white} from '../design';
+import {AnimatePresence, motion} from 'framer-motion';
+import {BPT, bold, h2s, primaryHover, white} from '../design';
 import {FilterButton} from './FilterButton';
 import {Modal} from '../Modal';
 
@@ -19,32 +19,42 @@ const ButtonBox = styled.div`
   gap: 8px;
 `;
 
+const AnimWr = styled.div`
+  position: relative;
+  padding: 0;
+  width: 95%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 24px;
+  @media ${BPT.lg} {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+  @media ${BPT.md} {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
+`;
+
 const CardWr = styled(motion.div)`
   position: relative;
   cursor: pointer;
 `;
 const Cards = styled.div`
   float: left;
-  background-image: url(${(props) => props.image});
+  background-image: url(${props => props.image});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 105%;
   filter: brightness(90%);
-  width: 30%;
-  margin: 15px;
+  width: 100%;
   aspect-ratio: 325 / 225;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 16px;
-  @media ${BPT.md} {
-  width: 45%;
-
-  }
 `;
+
 const InsideText = styled.p`
-  /* color: ${(props) => props.theme.title}; */
   color: ${white};
   ${h2s};
   ${bold};
@@ -87,13 +97,13 @@ export default function ProjectsFilter({data}) {
     ['all']
   );
 
-  const handleFilter = (selector) => {
+  const handleFilter = selector => {
     if (selector === 'all') return setCards(data);
 
-    setCards(data.filter((el) => el.category === selector));
+    setCards(data.filter(el => el.category === selector));
   };
 
-  const openModal = (dt) => {
+  const openModal = dt => {
     setActive(true);
     setModalData(dt);
   };
@@ -104,12 +114,14 @@ export default function ProjectsFilter({data}) {
 
   return (
     <Wr>
-      {active && <Modal
-        active={active}
-        onClose={closeModal}
-        data={modalData}
-        // width={'300px'}
-      />}
+      {active && (
+        <Modal
+          active={active}
+          onClose={closeModal}
+          data={modalData}
+          // width={'300px'}
+        />
+      )}
       <ButtonBox>
         {buttons.map((btn, index) => (
           <FilterButton
@@ -123,36 +135,36 @@ export default function ProjectsFilter({data}) {
           />
         ))}
       </ButtonBox>
-      <AnimatePresence mode='popLayout'>
-        {cards.map((el) => (
-          <CardWr
-            key={el.title}
-            initial='rest'
-            whileHover='hover'
-            animate='rest'
-            layout
-          >
-            <Cards
-              onClick={() => openModal(el)}
-              image={el.file}
-              as={motion.div}
-              initial={{opacity: 0}}
-              animate={{opacity: 1}}
-              exit={{opacity: 0}}
-              whileHover={{
-                backgroundColor: primaryHover,
-                backgroundImage: 'none',
-              }}
-              transition={{ease: 'easeInOut', type: 'tween', duration: 0.35}}
-              layout
-            >
-              <InsideText as={motion.p} variants={textMotion}>
-                {el.title}
-              </InsideText>
-            </Cards>
-          </CardWr>
-        ))}
-      </AnimatePresence>
+      <AnimWr>
+        <AnimatePresence mode="popLayout">
+          {cards.map(el => (
+            <CardWr
+              key={el.title}
+              initial="rest"
+              whileHover="hover"
+              animate="rest"
+              layout>
+              <Cards
+                onClick={() => openModal(el)}
+                image={el.file}
+                as={motion.div}
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                exit={{opacity: 0}}
+                whileHover={{
+                  backgroundColor: primaryHover,
+                  backgroundImage: 'none',
+                }}
+                transition={{ease: 'easeInOut', type: 'tween', duration: 0.35}}
+                layout>
+                <InsideText as={motion.p} variants={textMotion}>
+                  {el.title}
+                </InsideText>
+              </Cards>
+            </CardWr>
+          ))}
+        </AnimatePresence>
+      </AnimWr>
     </Wr>
   );
 }

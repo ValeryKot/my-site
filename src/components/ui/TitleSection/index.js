@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {h1l, megaTx, black, primaryHover} from '../../design';
+import {BPT, h1l, megaTx, black, primaryHover, h1m, h1s} from '../../design';
 
 const Wr = styled.div`
   margin: 0 auto;
@@ -8,12 +8,21 @@ const Wr = styled.div`
   position: relative;
   padding: 80px 0;
   text-align: center;
+  @media ${BPT.sm} {
+    text-align: left;
+  }
   & h1 {
     ${h1l};
     color: ${(props) => props.theme.title};
     text-transform: uppercase;
     margin: 0;
     text-shadow: 0px 5px 7px rgba(0, 0, 0, 0.25);
+    @media ${BPT.md} {
+      ${h1m};
+  }
+    @media ${BPT.sm} {
+      ${h1s};
+  }
   }
   & h1 > span {
     color: ${primaryHover};
@@ -31,6 +40,10 @@ const Wr = styled.div`
     color: ${(props) => props.theme.title};
     opacity: 0.1;
     filter: blur(2px);
+    @media ${BPT.md} {
+      ${h1l};
+      top: 55%;
+  }
   }
 `;
 

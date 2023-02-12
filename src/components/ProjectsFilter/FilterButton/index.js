@@ -11,34 +11,43 @@ const Button = styled.button`
   border-radius: 4px;
   ${bodyMd};
   ${semibold};
-  color: ${(props) => (props.isSelected ? primaryHover : props.theme.title)};
+  color: ${props => (props.isSelected ? primaryHover : props.theme.title)};
   text-transform: uppercase;
   text-align: center;
   position: relative;
   cursor: pointer;
-  ${(props) => (props.isSelected && css`
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 4px;
-    left: 0;
-    height: 3px;
-    border-radius: 1px;
-    width: 100%;
-    margin: 0 auto;
-    background-color: ${primaryHover};
-  }
-  `)};
-  &:hover {
-    color: ${primaryHover};
-    background-color: ${(props) => (props.theme.subtitle)};
-    
-  }
+  ${props =>
+    props.isSelected &&
+    css`
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        left: 0;
+        height: 3px;
+        border-radius: 1px;
+        width: 100%;
+        margin: 0 auto;
+        background-color: ${primaryHover};
+      }
+    `};
+  ${props =>
+    props.shouldHover &&
+    css`
+      &:hover {
+        color: ${primaryHover};
+        background-color: ${props => props.theme.subtitle};
+      }
+    `}
 `;
 
 export const FilterButton = ({text, handleClick = () => {}, isSelected}) => {
   return (
-    <Button isSelected={isSelected} as={motion.button} onClick={handleClick}>
+    <Button
+      shouldHover
+      isSelected={isSelected}
+      as={motion.button}
+      onClick={handleClick}>
       {text}
     </Button>
   );

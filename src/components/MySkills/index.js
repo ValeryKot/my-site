@@ -6,7 +6,6 @@ import {
   buildStyles,
 } from 'react-circular-progressbar';
 import {hex2rgba, getStyle} from '../../utils/helpers';
-import {SKILLS_DATA} from '../../utils/static';
 
 const Wr = styled.div`
   width: 100%;
@@ -15,12 +14,12 @@ const Wr = styled.div`
   flex-direction: column;
   gap: 20px;
   &::before {
-    content: 'My skills';
+    content: 'My skills (in Projects)';
     text-transform: uppercase;
     text-align: center;
     ${h2l};
     ${semibold};
-    color: ${(props) => props.theme.title};
+    color: ${props => props.theme.title};
   }
   > div {
     width: 100%;
@@ -43,43 +42,45 @@ const Chart = styled.div`
     margin-top: 15px;
     ${bodyMd};
     ${semibold};
-    color: ${(props) => props.theme.title};
+    color: ${props => props.theme.title};
     text-transform: uppercase;
     text-align: center;
   }
   @media ${BPT.md} {
     width: calc(50% - 30px);
-  };
+  } ;
 `;
 const Percent = styled.span`
   margin-top: -15px;
   ${bodyMd};
   ${semibold};
-  color: ${(props) => props.theme.title};
+  color: ${props => props.theme.title};
   text-transform: uppercase;
   text-align: center;
 `;
 
-
-export default function MySkills() {
+export default function MySkills({values}) {
+  if (!values.skills) return <></>;
   return (
     <Wr>
       <div>
-        {SKILLS_DATA.map((skill) => (
-          <Chart key={skill.title}>
+        {Object.entries(values.skills).map(([key, value]) => (
+          <Chart key={key}>
             <CircularProgressbarWithChildren
-              value={skill.value}
+              value={Math.round((value / values.projects) * 100)}
               styles={buildStyles({
                 strokeLinecap: 'butt',
-                pathColor: hex2rgba(getStyle(primaryHover), skill.value),
+                pathColor: hex2rgba(
+                  getStyle(primaryHover),
+                  Math.round((value / values.projects) * 100)
+                ),
                 textColor: white,
                 trailColor: primaryLt,
                 backgroundColor: 'none',
-              })}
-            >
-              <Percent>{skill.value}%</Percent>
+              })}>
+              <Percent>{Math.round((value / values.projects) * 100)}%</Percent>
             </CircularProgressbarWithChildren>
-            <p>{skill.title}</p>
+            <p>{key}</p>
           </Chart>
         ))}
       </div>

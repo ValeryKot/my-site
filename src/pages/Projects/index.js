@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {PROJECTS_DATA as data} from '../../utils/static';
 import ProjectsFilter from '../../components/ProjectsFilter';
 import TitleSection from '../../components/ui/TitleSection';
+import {BPT} from '../../components/design';
 
 const Wr = styled.div`
   position: relative;
@@ -17,14 +18,20 @@ const Container = styled.div`
   max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
+  @media ${BPT.lg} {
+    padding: 0 24px;
+  };
+  @media ${BPT.md} {
+    padding: 0 16px;
+  };
 `;
 
 function Projects() {
   return (
     <Wr>
-      <TitleSection title='My ' secondTitle='portfolio' subtitle='works' />
       <Container>
-      <ProjectsFilter data={data}/>
+        <TitleSection title='My ' secondTitle='portfolio' subtitle='works' />
+        <ProjectsFilter data={data}/>
       </Container>
     </Wr>
   );

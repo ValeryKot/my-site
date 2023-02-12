@@ -8,7 +8,7 @@ const Wr = styled.div`
   height: 50px;
   position: relative;
   border-radius: 50%;
-  background-color: ${(props) =>
+  background-color: ${props =>
     props.isActive ? primaryHover : props.theme.subtitle};
   display: flex;
   align-items: center;
@@ -48,11 +48,11 @@ const Wr = styled.div`
     &:hover h2 {
       opacity: 0;
     }
-  };
+  }
   @media ${BPT.xs} {
     width: 45px;
-  min-width: 45px;
-  height: 45px;
+    min-width: 45px;
+    height: 45px;
   }
 `;
 

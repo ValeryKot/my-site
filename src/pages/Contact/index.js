@@ -38,8 +38,8 @@ const InfoContainer = styled.div`
 function Contact() {
   return (
     <Wr>
-      <TitleSection title='Get in ' secondTitle='touch' subtitle='contact' />
       <Container>
+      <TitleSection title='Get in ' secondTitle='touch' subtitle='contact' />
         <InfoContainer>
           <ContactInfo />
           <ContactForm />

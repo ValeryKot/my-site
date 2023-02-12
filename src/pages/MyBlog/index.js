@@ -4,6 +4,7 @@ import BlogPostCard from '../../components/BlogPostCard';
 import TitleSection from '../../components/ui/TitleSection';
 import {WP_API} from '../../utils/static';
 import {findKeys} from '../../utils/helpers';
+import {BPT} from '../../components/design';
 
 const Wr = styled.div`
   position: relative;
@@ -17,6 +18,12 @@ const Container = styled.div`
   max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
+  @media ${BPT.lg} {
+    padding: 0 24px;
+  };
+  @media ${BPT.md} {
+    padding: 0 16px;
+  };
 `;
 
 const CardWr = styled.div`
@@ -45,8 +52,8 @@ function MyBlog() {
 
   return (
     <Wr>
-      <TitleSection title='MY ' secondTitle='BLOG' subtitle='posts' />
       <Container>
+      <TitleSection title='MY ' secondTitle='BLOG' subtitle='posts' />
         {data && (
           <CardWr>
             {data.posts.map((p) => (
