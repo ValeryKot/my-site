@@ -142,6 +142,24 @@ const InfoItem = styled.div`
   }
 `;
 
+
+const Figure = styled.figure`
+  width: 100%;
+  max-height: 370px;
+  background-image: url(${(props) => props.image});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 105%;
+  overflow: hidden;
+  background: ${secondaryHover};
+  border-radius: 8px;
+  & img {
+    height: 100%;
+    width: 100%;
+  }
+`;
+
 const StaticWr = styled.div`
   position: relative;
   & p, ul, pre {
@@ -187,22 +205,6 @@ const StaticWr = styled.div`
   }
 `;
 
-const Figure = styled.figure`
-  width: 100%;
-  max-height: 370px;
-  background-image: url(${(props) => props.image});
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 105%;
-  overflow: hidden;
-  background: ${secondaryHover};
-  border-radius: 8px;
-  & img {
-    height: 100%;
-    width: 100%;
-  }
-`;
 
 export const Modal = ({active, onClose, data, width}) => {
   useEffect(() => {
@@ -293,7 +295,7 @@ export const Modal = ({active, onClose, data, width}) => {
               </InfoItem>
             )}
           </InfoBox>
-          <Figure image>
+          <Figure>
             <img src={data.file} alt='Preview' />
           </Figure>
         </Content>
