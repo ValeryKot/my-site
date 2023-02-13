@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {primaryHover, white, bodyMd} from '../../../design';
+import {primaryHover, bodyMd} from '../../../design';
 
 const Wr = styled.div`
   width: fit-content;
@@ -58,6 +58,8 @@ const Wr = styled.div`
 `;
 
 export default function ActionButton({
+  submit = false,
+  handleSubmit,
   title,
   icon,
   isActive,
@@ -66,7 +68,7 @@ export default function ActionButton({
   link = '',
 }) {
   return (
-    <Wr isActive={isActive} onClick={() => setPage(value)}>
+    <Wr isActive={isActive} onClick={(e) => submit ? handleSubmit(e) : setPage(value)}>
       {link ? (
         <a href={link} target='_blank' rel='noreferrer'>
           <h2>{title}</h2>

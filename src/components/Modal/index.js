@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import { createPortal } from "react-dom";
 import styled, {css} from 'styled-components';
 import {
   IoDocumentTextOutline,
@@ -219,7 +220,7 @@ export const Modal = ({active, onClose, data, width}) => {
     };
   }, [active]);
   if (data.site_ID) {
-    return (
+    return createPortal(
       <Wr active={active} onClick={onClose}>
         <ContentContainer maxWidth={width}>
           <CloseButton src={close_icon} alt='close' onClick={onClose} />
@@ -228,11 +229,11 @@ export const Modal = ({active, onClose, data, width}) => {
             <StaticWr dangerouslySetInnerHTML={{__html: data.content}}/>
           </Content>
         </ContentContainer>
-      </Wr>
+      </Wr>, document.body
     );
   };
 
-  return (
+  return createPortal(
     <Wr active={active} onClick={onClose}>
       <ContentContainer maxWidth={width}>
         <CloseButton src={close_icon} alt='close' onClick={onClose} />
@@ -300,6 +301,6 @@ export const Modal = ({active, onClose, data, width}) => {
           </Figure>
         </Content>
       </ContentContainer>
-    </Wr>
+    </Wr>, document.body
   );
 };

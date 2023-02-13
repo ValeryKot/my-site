@@ -4,7 +4,6 @@ import {
   bodyLg,
   bodyMd,
   primaryHover,
-  secondary,
   secondaryLt,
   semibold,
 } from '../design';

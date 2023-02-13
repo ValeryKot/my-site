@@ -1,5 +1,7 @@
 import React, {useReducer, useRef, useState} from 'react';
 import styled from 'styled-components';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {BPT} from '../design';
 import {FEEDBACK} from '../../utils/static';
 import formReducer from '../../utils/reducers/formReducer';
@@ -54,14 +56,31 @@ export default function ContactForm() {
     });
   };
 
+  const resethandle = () => {
+    setFormState({
+      type: 'RESET'})
+  }
+
   const validate = (type, state) => {
     setFormValidityData({type: type, payLoad: state});
   };
 
+  const notify = () =>
+    toast.success('Message Sent Successfully!', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+    });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-
+    notify();
     fetch(FEEDBACK, {
       method: 'POST',
       body: new FormData(formRef.current),
@@ -71,10 +90,13 @@ export default function ContactForm() {
         setLoading(false);
       })
       .catch((err) => alert(err.message));
+      resethandle();
   };
+
 
   return (
     <Wr>
+      {loading && <ToastContainer/>}
       <form ref={formRef} onSubmit={handleSubmit}>
         <Input
           title='YOUR Name'
@@ -111,14 +133,7 @@ export default function ContactForm() {
           value={formState.message}
           onChange={(e) => handleChange(e)}
         />
-        {formValidityData.isFormValid && (
-          <input
-            style={{padding: 10}}
-            type='submit'
-            value={loading ? 'Loading...' : 'SEND MESSAGE'}
-          />
-        )}
-        <ActionButton title="Send message" icon={send_icon} />
+        <ActionButton submit handleSubmit={handleSubmit} title="Send message" icon={send_icon} />
       </form>
     </Wr>
   );
