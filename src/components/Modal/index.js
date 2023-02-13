@@ -62,7 +62,7 @@ const Content = styled.div`
   border: 2px solid ${primaryLt};
   color: ${white};
   border-radius: 16px;
-  max-height: 90vh;
+  max-height: 85vh;
   overflow-y: auto;
   &::-webkit-scrollbar {
     display: none;
