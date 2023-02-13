@@ -114,14 +114,6 @@ export default function ProjectsFilter({data}) {
 
   return (
     <Wr>
-      {active && (
-        <Modal
-          active={active}
-          onClose={closeModal}
-          data={modalData}
-          // width={'300px'}
-        />
-      )}
       <ButtonBox>
         {buttons.map((btn, index) => (
           <FilterButton
@@ -165,6 +157,13 @@ export default function ProjectsFilter({data}) {
           ))}
         </AnimatePresence>
       </AnimWr>
+      {active && (
+        <Modal
+          active={active}
+          onClose={closeModal}
+          data={modalData}
+        />
+      )}
     </Wr>
   );
 }

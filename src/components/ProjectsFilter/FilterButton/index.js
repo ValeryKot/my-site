@@ -31,20 +31,17 @@ const Button = styled.button`
         background-color: ${primaryHover};
       }
     `};
-  ${props =>
-    props.shouldHover &&
-    css`
-      &:hover {
+  
+      &:hover:hover {
         color: ${primaryHover};
         background-color: ${props => props.theme.subtitle};
       }
-    `}
+  
 `;
 
 export const FilterButton = ({text, handleClick = () => {}, isSelected}) => {
   return (
     <Button
-      shouldHover
       isSelected={isSelected}
       as={motion.button}
       onClick={handleClick}>

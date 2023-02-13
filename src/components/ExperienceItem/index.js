@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled, {css} from 'styled-components';
 import Collapse from 'react-collapse';
-import {primaryHover, white, caption, semibold, h2s, bodyMd, bodyLg} from '../design';
+import {BPT, primaryHover, white, caption, semibold, h2s, bodyMd, bodyLg} from '../design';
 import exp_icon from '../../images/icons/resume.svg';
 import arrow from '../../images/icons/arrow_down.svg';
 
@@ -66,6 +66,9 @@ const TitleBox = styled.p`
     padding-left: 26px;
     position: relative;
     white-space: nowrap;
+    @media ${BPT.md} {
+      white-space: pre-line;
+  }
   }
   & span::before {
     position: absolute;

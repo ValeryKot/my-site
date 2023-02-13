@@ -1,26 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import {BPT, h2m, bodyMd, regular, primaryHover, semibold} from '../design';
+import {h2m, bodyMd, regular, primaryHover, semibold} from '../design';
 
 const Wr = styled.div`
   display: block;
   cursor: pointer;
   overflow: hidden;
   border-radius: 5px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-bottom: 30px;
-  flex: 0 0 auto;
-  width: 33%;
-  @media ${BPT.xl} {
-    width: 30%;
-  }
-  @media ${BPT.lg} {
-    width: 50%;
-  }
-  @media ${BPT.md} {
-    width: 100%;
-  }
+  width: 100%;
 `;
 
 const Tumb = styled.div`
@@ -74,9 +61,9 @@ const TextBox = styled.div`
   }
 `;
 
-export default function BlogPostCard({image, title, body}) {
+export default function BlogPostCard({image, title, body, onClick=() => {}}) {
   return (
-    <Wr>
+    <Wr onClick={onClick}>
       <Tumb image={image} />
       <TextBox>
         <h3>{title}</h3>

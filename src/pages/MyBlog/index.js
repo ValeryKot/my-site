@@ -4,6 +4,7 @@ import BlogPostCard from '../../components/BlogPostCard';
 import TitleSection from '../../components/ui/TitleSection';
 import {WP_API} from '../../utils/static';
 import {findKeys} from '../../utils/helpers';
+import { Modal } from '../../components/Modal';
 import {BPT} from '../../components/design';
 
 const Wr = styled.div`
@@ -27,13 +28,24 @@ const Container = styled.div`
 `;
 
 const CardWr = styled.div`
-display: flex;
-flex-wrap: wrap;
-  width: 100%;
+  position: relative;
+  padding: 0;
+  width: 95%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 24px;
+  @media ${BPT.lg} {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+  @media ${BPT.md} {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
 `;
 
 function MyBlog() {
   const [data, setData] = useState();
+  const [active, setActive] = useState(false);
+  const [modalData, setModalData] = useState({});
   useEffect(() => {
     getApiData();
   }, []);
@@ -47,8 +59,14 @@ function MyBlog() {
 
     setData(response);
   };
-
-
+  const openModal = dt => {
+    setActive(true);
+    setModalData(dt);
+  };
+  const closeModal = () => {
+    setActive(false);
+    setModalData({});
+  };
 
   return (
     <Wr>
@@ -57,11 +75,18 @@ function MyBlog() {
         {data && (
           <CardWr>
             {data.posts.map((p) => (
-              <BlogPostCard key={p.global_ID} image={findKeys(p.attachments)} title={p.title} body={p.excerpt} />
+              <BlogPostCard onClick={() => openModal(p)} key={p.global_ID} image={findKeys(p.attachments)} title={p.title} body={p.excerpt} data={p}/>
             ))}
           </CardWr>
         )}
       </Container>
+      {active && (
+        <Modal
+          active={active}
+          onClose={closeModal}
+          data={modalData}
+        />
+      )}
     </Wr>
   );
 }

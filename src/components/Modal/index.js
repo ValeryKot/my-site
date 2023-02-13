@@ -8,12 +8,14 @@ import {
 } from 'react-icons/io5';
 import close_icon from '../../images/icons/close.svg';
 import {
+  BPT,
   white,
   secondaryHover,
+  primaryLt,
   primaryHover,
   h2l,
   bold,
-  bodySm,
+  bodyMd,
 } from '../design';
 
 const Wr = styled.div`
@@ -46,7 +48,8 @@ const ContentContainer = styled.div`
   height: auto;
   max-width: ${(props) => (props.maxWidth ? props.maxWidth : '680px')};
 
-  @media (max-width: 800px) {
+  @media ${BPT.md} {
+    width: 90%;
     max-width: unset;
   }
 `;
@@ -55,6 +58,7 @@ const Content = styled.div`
   padding: 32px;
   width: 100%;
   background: ${secondaryHover};
+  border: 2px solid ${primaryLt};
   color: ${white};
   border-radius: 16px;
   max-height: 90vh;
@@ -63,6 +67,8 @@ const Content = styled.div`
     display: none;
   }
   h2 {
+    max-width: 80%;
+    margin: 0 auto;
     color: ${primaryHover};
     ${h2l};
     ${bold};
@@ -70,8 +76,10 @@ const Content = styled.div`
     padding: 10px 0 20px;
     text-align: center;
     margin-bottom: 8px;
+    white-space: pre-line;
+
   }
-  @media (max-width: 800px) {
+  @media ${BPT.md} {
     padding: 15px;
   }
 `;
@@ -85,6 +93,10 @@ const CloseButton = styled.img`
   &:hover {
     filter: brightness(130%);
   }
+  @media ${BPT.md} {
+    right: 2px;
+  top: 2px;
+  }
 `;
 
 const InfoBox = styled.div`
@@ -97,12 +109,17 @@ const InfoBox = styled.div`
 const InfoItem = styled.div`
   margin-bottom: 8px;
   padding-right: 8px;
-  width: 50%;
+  width: 100%;
   max-width: 100%;
   flex: 0 0 auto;
-  ${bodySm};
+  ${bodyMd};
   color: ${white};
-  word-wrap: break-word; 
+  word-wrap: break-word;
+  &:nth-child(1),
+  &:nth-child(2) {
+    width: fit-content;
+    flex: 0 0 50%;
+  }
   & span {
     opacity: 0.7;
     margin-right: 4px;
@@ -122,6 +139,51 @@ const InfoItem = styled.div`
     text-decoration: none;
     white-space: nowrap;
     display: inline;
+  }
+`;
+
+const StaticWr = styled.div`
+  position: relative;
+  & p, ul, pre {
+    margin-bottom: 8px;
+    padding:0 8px;
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 auto;
+    ${bodyMd};
+    color: ${white};
+    white-space: normal;
+  }
+  & li, pre {
+    position: relative;
+    padding: 0 16px;
+    list-style: none;
+  }
+  & li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: ${primaryHover};
+  }
+  & pre {
+    color: ${primaryHover};
+  }
+  & a {
+    color: ${primaryHover};
+    text-decoration: none;
+  }
+  & figure {
+    width: fit-content;
+    max-width: 100%;
+    max-height: 370px;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 12px;
   }
 `;
 
@@ -154,6 +216,20 @@ export const Modal = ({active, onClose, data, width}) => {
       document.documentElement.style.overflowY = '';
     };
   }, [active]);
+  if (data.site_ID) {
+    return (
+      <Wr active={active} onClick={onClose}>
+        <ContentContainer maxWidth={width}>
+          <CloseButton src={close_icon} alt='close' onClick={onClose} />
+          <Content onClick={(e) => e.stopPropagation()}>
+            <h2>{data.title}</h2>
+            <StaticWr dangerouslySetInnerHTML={{__html: data.content}}/>
+          </Content>
+        </ContentContainer>
+      </Wr>
+    );
+  };
+
   return (
     <Wr active={active} onClick={onClose}>
       <ContentContainer maxWidth={width}>

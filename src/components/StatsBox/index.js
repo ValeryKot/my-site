@@ -57,7 +57,7 @@ const Box = styled.div`
 
 export default function StatsBox({values}) {
   if (!values.projects) return <></>;
-  console.log(values);
+  // console.log(values);
   return (
     <Wr>
       {STATS_DATA.map(stats => (

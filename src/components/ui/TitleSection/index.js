@@ -42,7 +42,8 @@ const Wr = styled.div`
     filter: blur(2px);
     @media ${BPT.md} {
       ${h1l};
-      top: 55%;
+      left: 20px;
+      top: 65%;
   }
   }
 `;

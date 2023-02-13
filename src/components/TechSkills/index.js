@@ -75,7 +75,7 @@ export default function TechSkills({values}) {
       <BoxWr>
         {values.libs !== null &&
           values.libs.map(item => (
-            <Box>
+            <Box key={item}>
               <p>{item}</p>
             </Box>
           ))}

@@ -241,7 +241,7 @@ export const PROJECTS_DATA = [
       'React.JS',
       'Responsive Web Design',
     ],
-    libraries: ['Styled Components', 'Strapi'],
+    libraries: ['Styled Components', 'Strapi JS'],
     client: 'Russian highways',
     link: 'https://test.rador.org/',
     file: require('../../images/pr_7.png'),
