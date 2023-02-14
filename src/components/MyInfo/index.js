@@ -101,7 +101,8 @@ export default function MyInfo() {
       <ActionButton
         title="Download CV"
         icon={dwn_icon}
-        link="http://localhost:3000/1230"
+        download={true}
+        link="../../images/VALERY_KOT_CV.pdf"
       />
     </Wr>
   );

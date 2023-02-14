@@ -66,11 +66,12 @@ export default function ActionButton({
   setPage,
   value,
   link = '',
+  download = false,
 }) {
   return (
     <Wr isActive={isActive} onClick={(e) => submit ? handleSubmit(e) : setPage(value)}>
       {link ? (
-        <a href={link} target='_blank' rel='noreferrer'>
+        <a href={link} download={download} target='_blank' rel='noreferrer'>
           <h2>{title}</h2>
           <img src={icon} alt={title} />
         </a>

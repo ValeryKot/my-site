@@ -85,9 +85,6 @@ function About() {
         </InfoContainer>
         <Separator />
         <MySkills values={values} />
-        {/* TECHNICAL/PRODUCT SKILLS: {values.libs.join(', ')} */}
-        {/* GRAPHQL, SASS, Redux (Redux Thunk, Redux
-        Toolkit), STYLED-COMPONENTS ETC. */}
         <Separator />
         <TechSkills values={values} />
       </Container>
