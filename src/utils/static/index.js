@@ -170,7 +170,7 @@ export const PROJECTS_DATA = [
   {
     category: 'projects',
     title: 'FAIR-TAXES',
-    type: 'Website',
+    type: 'Landing Website',
     technology: ['HTML', 'CSS', 'JavaScript', 'Responsive Web Design'],
     libraries: ['Tailwind CSS', 'Swiper.JS'],
     client: 'FAIR TAXES',
@@ -180,7 +180,7 @@ export const PROJECTS_DATA = [
   {
     category: 'projects',
     title: 'SanR Explorer',
-    type: 'Website',
+    type: 'Web application',
     technology: [
       'HTML',
       'CSS',
@@ -197,21 +197,21 @@ export const PROJECTS_DATA = [
   {
     category: 'projects',
     title: 'SanR Staking landing',
-    type: 'Website',
+    type: 'Landing Website',
     technology: ['HTML', 'CSS', 'JavaScript', 'React.JS'],
     libraries: ['Styled Components', 'Airbnb-prop-types'],
     client: 'SanR',
-    link: 'https://sanr.app/?utm_medium=emai&utm_campaign=staking',
+    link: 'https://sanr.app/staking',
     file: require('../../images/pr_4.png'),
   },
   {
     category: 'projects',
     title: 'SanR.App',
-    type: 'Website',
+    type: 'Web application',
     technology: ['HTML', 'CSS', 'JavaScript', 'React.JS', 'TypeScript'],
-    libraries: ['Styled Components', 'Airbnb-prop-types'],
+    libraries: ['Styled Components', 'Chartist.js', 'D3.js'],
     client: 'SanR',
-    link: 'https://sanr.app/?utm_medium=emai&utm_campaign=staking',
+    link: 'https://sanr.app/',
     file: require('../../images/pr_5.png'),
   },
   {
