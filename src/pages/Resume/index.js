@@ -10,6 +10,7 @@ import {
 } from '../../components/design';
 import ExperienceItem from '../../components/ExperienceItem';
 import {SUMMARY, EXPERIENCE, EDUCATION} from '../../utils/static';
+import Layout from '../../components/Layout/index';
 
 const Wr = styled.div`
   position: relative;
@@ -113,30 +114,32 @@ const ItemsCol = styled.div`
 
 function Resume() {
   return (
-    <Wr>
-      <Container>
-        <TitleSection title="Resu" secondTitle="Me" subtitle="history" />
-        <SummaryWr>
-          {SUMMARY.map((p, i) => (
-            <p key={i}>{p}</p>
-          ))}
-        </SummaryWr>
-        <Box>
-          <ItemsWr>
-            <ItemsCol>
-              {EXPERIENCE.map(exp => (
-                <ExperienceItem key={exp.time} {...exp} />
-              ))}
-            </ItemsCol>
-            <ItemsCol>
-              {EDUCATION.map(exp => (
-                <ExperienceItem key={exp.time} {...exp} />
-              ))}
-            </ItemsCol>
-          </ItemsWr>
-        </Box>
-      </Container>
-    </Wr>
+    <Layout>
+      <Wr>
+        <Container>
+          <TitleSection title="Resu" secondTitle="Me" subtitle="history" />
+          <SummaryWr>
+            {SUMMARY.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </SummaryWr>
+          <Box>
+            <ItemsWr>
+              <ItemsCol>
+                {EXPERIENCE.map(exp => (
+                  <ExperienceItem key={exp.time} {...exp} />
+                ))}
+              </ItemsCol>
+              <ItemsCol>
+                {EDUCATION.map(exp => (
+                  <ExperienceItem key={exp.time} {...exp} />
+                ))}
+              </ItemsCol>
+            </ItemsWr>
+          </Box>
+        </Container>
+      </Wr>
+    </Layout>
   );
 }
 

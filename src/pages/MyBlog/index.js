@@ -6,13 +6,14 @@ import {WP_API} from '../../utils/static';
 import {findKeys} from '../../utils/helpers';
 import { Modal } from '../../components/Modal';
 import {BPT} from '../../components/design';
+import Layout from '../../components/Layout/index';
 
 const Wr = styled.div`
   position: relative;
   overflow: hidden;
   width: 100%;
   min-height: 100vh;
-  background-color: ${(props) => props.theme.body};
+  background-color: ${props => props.theme.body};
 `;
 
 const Container = styled.div`
@@ -21,10 +22,10 @@ const Container = styled.div`
   margin-left: auto;
   @media ${BPT.lg} {
     padding: 0 24px;
-  };
+  }
   @media ${BPT.md} {
     padding: 0 16px;
-  };
+  } ;
 `;
 
 const CardWr = styled.div`
@@ -52,8 +53,8 @@ function MyBlog() {
 
   const getApiData = async () => {
     const response = await fetch(WP_API)
-      .then((response) => response.json())
-      .catch((error) => {
+      .then(response => response.json())
+      .catch(error => {
         console.log('error', error);
       });
 
@@ -69,25 +70,30 @@ function MyBlog() {
   };
 
   return (
-    <Wr>
-      <Container>
-      <TitleSection title='MY ' secondTitle='BLOG' subtitle='posts' />
-        {data && (
-          <CardWr>
-            {data.posts.map((p) => (
-              <BlogPostCard onClick={() => openModal(p)} key={p.global_ID} image={findKeys(p.attachments)} title={p.title} body={p.excerpt} data={p}/>
-            ))}
-          </CardWr>
+    <Layout>
+      <Wr>
+        <Container>
+          <TitleSection title="MY " secondTitle="BLOG" subtitle="posts" />
+          {data && (
+            <CardWr>
+              {data.posts.map(p => (
+                <BlogPostCard
+                  onClick={() => openModal(p)}
+                  key={p.global_ID}
+                  image={findKeys(p.attachments)}
+                  title={p.title}
+                  body={p.excerpt}
+                  data={p}
+                />
+              ))}
+            </CardWr>
+          )}
+        </Container>
+        {active && (
+          <Modal active={active} onClose={closeModal} data={modalData} />
         )}
-      </Container>
-      {active && (
-        <Modal
-          active={active}
-          onClose={closeModal}
-          data={modalData}
-        />
-      )}
-    </Wr>
+      </Wr>
+    </Layout>
   );
 }
 

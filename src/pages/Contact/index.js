@@ -4,13 +4,14 @@ import {BPT} from '../../components/design';
 import ContactForm from '../../components/ContactForm';
 import ContactInfo from '../../components/ContactInfo';
 import TitleSection from '../../components/ui/TitleSection';
+import Layout from '../../components/Layout/index';
 
 const Wr = styled.div`
   position: relative;
   overflow: hidden;
   width: 100%;
   min-height: 100vh;
-  background-color: ${(props) => props.theme.body};
+  background-color: ${props => props.theme.body};
   padding-bottom: 85px;
 `;
 
@@ -37,15 +38,21 @@ const InfoContainer = styled.div`
 
 function Contact() {
   return (
-    <Wr>
-      <Container>
-      <TitleSection title='Get in ' secondTitle='touch' subtitle='contact' />
-        <InfoContainer>
-          <ContactInfo />
-          <ContactForm />
-        </InfoContainer>
-      </Container>
-    </Wr>
+    <Layout>
+      <Wr>
+        <Container>
+          <TitleSection
+            title="Get in "
+            secondTitle="touch"
+            subtitle="contact"
+          />
+          <InfoContainer>
+            <ContactInfo />
+            <ContactForm />
+          </InfoContainer>
+        </Container>
+      </Wr>
+    </Layout>
   );
 }
 

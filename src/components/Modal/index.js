@@ -163,9 +163,11 @@ const Figure = styled.figure`
 
 const StaticWr = styled.div`
   position: relative;
-  & p, ul, pre {
+  & p,
+  ul,
+  pre {
     margin-bottom: 8px;
-    padding:0 8px;
+    padding: 0 8px;
     width: 100%;
     max-width: 100%;
     flex: 0 0 auto;
@@ -173,7 +175,8 @@ const StaticWr = styled.div`
     color: ${white};
     white-space: normal;
   }
-  & li, pre {
+  & li,
+  pre {
     position: relative;
     padding: 0 16px;
     list-style: none;
@@ -195,7 +198,7 @@ const StaticWr = styled.div`
     color: ${primaryHover};
     text-decoration: none;
   }
-  & figure {
+  & figure > img {
     width: fit-content;
     max-width: 100%;
     max-height: 370px;

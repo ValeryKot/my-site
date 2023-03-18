@@ -1,9 +1,12 @@
-import moment from 'moment';
+import differenceInMonths from 'date-fns/differenceInMonths';
+import differenceInYears from 'date-fns/differenceInYears'
 
 export const fromDate = () => {
-    return moment('01/08/2022', 'DD/MM/YYYY')
-      .fromNow(true)
-      .replace(' months', '');
+    return differenceInMonths(new Date(), new Date('2022/08/1'))
+      // .replace(' months ago', '');
+  };
+export const myAge = () => {
+    return differenceInYears(new Date(), new Date('1977/09/03')).toString();
   };
 
 export const hex2rgba = (hex, alpha = 100) => {

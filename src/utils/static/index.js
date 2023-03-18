@@ -9,6 +9,8 @@ import tw_icon from '../../images/icons/twitter.svg';
 import li_icon from '../../images/icons/linkid.svg';
 import tg_icon from '../../images/icons/telegram.svg';
 
+import {myAge} from '../helpers';
+
 export const PHONE = '+375336320623';
 export const E_MAIL = 'kot.valery@gmail.com';
 export const ADDRESS = 'Plehanova street, Minsk, Republic of Belarus, 220085';
@@ -39,7 +41,7 @@ export const CATEGORIES = [
 export const PERSONAL_INFO = [
   {title: 'First Name:', value: 'Valery'},
   {title: 'Last Name:', value: 'Kot'},
-  {title: 'Age:', value: '45 Years'},
+  {title: 'Age:', value: `${myAge()} Years`},
   {title: 'Nationality:', value: 'Belarusian'},
   {title: 'Freelance:', value: 'Available', label: true},
   {title: 'Address:', value: 'Belarus'},
@@ -187,6 +189,7 @@ export const PROJECTS_DATA = [
       'JavaScript',
       'React.JS',
       'TypeScript',
+      'Zustand',
       'Responsive Web Design',
     ],
     libraries: ['Apollo Client', 'GraphQL', 'Material UI'],

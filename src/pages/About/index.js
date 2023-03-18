@@ -8,6 +8,7 @@ import {Separator} from '../../components/ui/Separator';
 import {BPT} from '../../components/design';
 import {PROJECTS_DATA} from '../../utils/static';
 import TechSkills from '../../components/TechSkills';
+import Layout from '../../components/Layout';
 
 const Wr = styled.div`
   position: relative;
@@ -21,7 +22,7 @@ const Container = styled.div`
   max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
-  @media ${BPT.lg} {
+  @media ${BPT.xl} {
     padding: 0 24px;
   }
   @media ${BPT.md} {
@@ -76,19 +77,21 @@ function About() {
   }, []);
 
   return (
-    <Wr>
-      <Container>
-        <TitleSection title="About " secondTitle="Me" subtitle="resume" />
-        <InfoContainer>
-          <MyInfo />
-          <StatsBox values={values} />
-        </InfoContainer>
-        <Separator />
-        <MySkills values={values} />
-        <Separator />
-        <TechSkills values={values} />
-      </Container>
-    </Wr>
+    <Layout>
+      <Wr>
+        <Container>
+          <TitleSection title="About " secondTitle="Me" subtitle="resume" />
+          <InfoContainer>
+            <MyInfo />
+            <StatsBox values={values} />
+          </InfoContainer>
+          <Separator />
+          <MySkills values={values} />
+          <Separator />
+          <TechSkills values={values} />
+        </Container>
+      </Wr>
+    </Layout>
   );
 }
 

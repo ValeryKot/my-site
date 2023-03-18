@@ -57,7 +57,7 @@ const Avatar = styled.div`
     width: 270px;
     height: 270px;
     border: 4px solid ${(props) => props.theme.lights};
-    background-size: 95%;
+    background-image: url(${require('../../images/myPhoto_mob.jpg')});
   }
   @media ${BPT.xs} {
     border-radius: 50%;
@@ -66,7 +66,6 @@ const Avatar = styled.div`
     width: 220px;
     height: 220px;
     border: 3px solid ${(props) => props.theme.lights};
-    background-size: 90%;
   }
 `;
 

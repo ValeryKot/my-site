@@ -61,10 +61,7 @@ const Avatar = styled.div`
   @media ${BPT.sm} {
     display: block;
     position: relative;
-    background-image: image-set(
-      url(${require('../../images/myPhoto.jpg')}) 1x,
-      url(${require('../../images/myPhoto2x.jpg')}) 2x
-    );
+    background-image: url(${require('../../images/myPhoto_mob.jpg')});
     background-repeat: no-repeat;
     background-position: center;
     filter: drop-shadow(2px 2px 7px rgba(0, 0, 0, 0.8));
@@ -73,7 +70,7 @@ const Avatar = styled.div`
     width: 220px;
     height: 220px;
     border: 3px solid ${props => props.theme.lights};
-    background-size: 90%;
+    background-size: cover;
     margin-bottom: 16px;
   }
 `;
