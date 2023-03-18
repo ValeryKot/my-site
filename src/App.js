@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {css, createGlobalStyle, ThemeProvider} from 'styled-components';
-import {AnimatePresence} from "framer-motion";
 import DesignSystem, {areaLt} from './components/design';
 import {
   white,
@@ -74,7 +73,6 @@ function App() {
 
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
-      <AnimatePresence mode="wait" initial={false}  onExitComplete={() => window.scrollTo(0, 0)}>
         <GlobalStyle />
         <DesignSystem />
         <ThemeButton toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
@@ -85,7 +83,6 @@ function App() {
         {page === 'PROJECTS' && <Projects />}
         {page === 'CONTACT' && <Contact />}
         {page === 'BLOG' && <MyBlog />}
-      </AnimatePresence>
     </ThemeProvider>
   );
 }

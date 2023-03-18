@@ -15,7 +15,7 @@ export default function ContactSocial() {
   return (
     <Wr>
       {SOCIAL_LINKS.map((sl) => (
-        <SocialButton icon={sl.icon} link={sl.link} />
+        <SocialButton icon={sl.icon} link={sl.link} key={sl.link}/>
       ))}
     </Wr>
   );

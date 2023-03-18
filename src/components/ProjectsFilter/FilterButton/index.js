@@ -32,7 +32,11 @@ const Button = styled.button`
       }
     `};
   
-    @media (hover:hover) {
+    /* @media (hover:hover) {
+        color: ${primaryHover};
+        background-color: ${props => props.theme.subtitle};
+      } */
+    &:hover:hover {
         color: ${primaryHover};
         background-color: ${props => props.theme.subtitle};
       }
