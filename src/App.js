@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import useLocalStorage from './hooks';
 import {css, createGlobalStyle, ThemeProvider} from 'styled-components';
 import DesignSystem, {areaLt} from './components/design';
 import {
@@ -62,8 +63,8 @@ const lightTheme = {
 };
 
 function App() {
-  const [theme, setTheme] = useState('dark');
-  const [page, setPage] = useState('HOME');
+  const [theme, setTheme] = useLocalStorage('dark', 'mode');
+  const [page, setPage] = useLocalStorage('HOME', 'page');
   const isDarkTheme = theme === 'dark';
 
   const toggleTheme = () => {

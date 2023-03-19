@@ -30,5 +30,5 @@ const Wr = styled.div`
 `;
 
 export default function Loader() {
-  return <Wr></Wr>;
+  return <Wr/>;
 }
