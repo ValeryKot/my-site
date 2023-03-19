@@ -68,7 +68,7 @@ export default function BlogPostCard({image, title, body, onClick=() => {}}) {
       <TextBox>
         <h3>{title}</h3>
         <p>
-          {body.replace(/<\/?[a-zA-Z]+>/gi, '').replace('&#8211; ', ' - ')}
+          {body.replace(/<[^>]*>/gi, '').replace('&#8211; ', ' - ')}
         </p>
       </TextBox>
     </Wr>
