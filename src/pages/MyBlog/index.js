@@ -7,6 +7,7 @@ import {findKeys} from '../../utils/helpers';
 import { Modal } from '../../components/Modal';
 import {BPT} from '../../components/design';
 import Layout from '../../components/Layout/index';
+import Loader from '../../components/ui/Loader/index';
 
 const Wr = styled.div`
   position: relative;
@@ -74,6 +75,7 @@ function MyBlog() {
       <Wr>
         <Container>
           <TitleSection title="MY " secondTitle="BLOG" subtitle="posts" />
+          {!data && <Loader/>}
           {data && (
             <CardWr>
               {data.posts.map(p => (
