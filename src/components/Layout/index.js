@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { nanoid } from 'nanoid'
+import {motion} from "framer-motion";
+import {nanoid} from 'nanoid'
 
 
 function Layout({ children }) { 

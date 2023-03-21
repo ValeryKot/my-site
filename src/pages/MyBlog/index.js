@@ -1,13 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import BlogPostCard from '../../components/BlogPostCard';
 import TitleSection from '../../components/ui/TitleSection';
-import {WP_API} from '../../utils/static';
-import {findKeys} from '../../utils/helpers';
-import { Modal } from '../../components/Modal';
+import {Modal} from '../../components/Modal';
 import {BPT} from '../../components/design';
 import Layout from '../../components/Layout/index';
-import Loader from '../../components/ui/Loader/index';
 
 const Wr = styled.div`
   position: relative;
@@ -34,6 +31,7 @@ const CardWr = styled.div`
   padding: 0;
   width: 95%;
   display: grid;
+  grid-auto-flow: row dense;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
   gap: 24px;
   @media ${BPT.lg} {
@@ -45,22 +43,9 @@ const CardWr = styled.div`
 `;
 
 function MyBlog() {
-  const [data, setData] = useState();
   const [active, setActive] = useState(false);
   const [modalData, setModalData] = useState({});
-  useEffect(() => {
-    getApiData();
-  }, []);
 
-  const getApiData = async () => {
-    const response = await fetch(WP_API)
-      .then(response => response.json())
-      .catch(error => {
-        console.log('error', error);
-      });
-
-    setData(response);
-  };
   const openModal = dt => {
     setActive(true);
     setModalData(dt);
@@ -75,21 +60,9 @@ function MyBlog() {
       <Wr>
         <Container>
           <TitleSection title="MY " secondTitle="BLOG" subtitle="posts" />
-          {!data && <Loader/>}
-          {data && (
-            <CardWr>
-              {data.posts.map(p => (
-                <BlogPostCard
-                  onClick={() => openModal(p)}
-                  key={p.global_ID}
-                  image={findKeys(p.attachments)}
-                  title={p.title}
-                  body={p.excerpt}
-                  data={p}
-                />
-              ))}
-            </CardWr>
-          )}
+          <CardWr>
+            <BlogPostCard openModal={openModal} />
+          </CardWr>
         </Container>
         {active && (
           <Modal active={active} onClose={closeModal} data={modalData} />

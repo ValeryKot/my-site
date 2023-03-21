@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
 import styled from 'styled-components';
 import {h2m, bodyMd, regular, primaryHover, semibold} from '../design';
+import {WP_API} from '../../utils/static';
+import {findKeys} from '../../utils/helpers';
+import Loader from '../ui/Loader';
 
 const Wr = styled.div`
   display: block;
@@ -18,7 +21,7 @@ const Tumb = styled.div`
   position: relative;
   display: block;
   overflow: hidden;
-  background-image: url(${(props) => props.image});
+  background-image: url(${props => props.image});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
@@ -32,20 +35,20 @@ const Tumb = styled.div`
 
 const TextBox = styled.div`
   position: relative;
-  background-color: ${(props) => props.theme.gradientMid};
+  background-color: ${props => props.theme.gradientMid};
   padding: 20px 25px 25px;
   border-radius: 0 0 5px 5px;
   height: 190px;
   & h3 {
     ${h2m};
     ${semibold};
-    color: ${(props) => props.theme.title};
+    color: ${props => props.theme.title};
   }
   & p {
     margin: 15px 0 5px;
     ${bodyMd};
     ${regular};
-    color: ${(props) => props.theme.title};
+    color: ${props => props.theme.title};
   }
   &::after {
     content: '';
@@ -57,20 +60,46 @@ const TextBox = styled.div`
     left: 0;
     z-index: 1;
     border-radius: 0 0 5px 5px;
-    background: linear-gradient(0deg,  ${(props) => props.theme.gradientMid} 0%, rgba(0, 0, 0, 0) 80%);
+    background: linear-gradient(
+      0deg,
+      ${props => props.theme.gradientMid} 0%,
+      rgba(0, 0, 0, 0) 80%
+    );
   }
 `;
 
-export default function BlogPostCard({image, title, body, onClick=() => {}}) {
+export default function BlogPostCard({openModal = () => {}}) {
+  const [data, setData] = useState();
+
+  const getApiData = useCallback(async () => {
+    const response = await fetch(WP_API)
+      .then(response => response.json())
+      .catch(error => {
+        console.log('error', error);
+      });
+
+    setData(response);
+  }, []);
+
+  useEffect(() => {
+    getApiData();
+  }, [getApiData]);
+
+  if (!data) return <Loader />;
+
   return (
-    <Wr onClick={onClick}>
-      <Tumb image={image} />
-      <TextBox>
-        <h3>{title}</h3>
-        <p>
-          {body.replace(/<[^>]*>/gi, '').replace('&#8211; ', ' - ')}
-        </p>
-      </TextBox>
-    </Wr>
+    <>
+      {data.posts.map(p => (
+        <Wr key={p.global_ID} onClick={e => openModal(p)}>
+          <Tumb image={findKeys(p.attachments)} />
+          <TextBox>
+            <h3>{p.title}</h3>
+            <p>
+              {p.excerpt.replace(/<[^>]*>/gi, '').replace('&#8211; ', ' - ')}
+            </p>
+          </TextBox>
+        </Wr>
+      ))}
+    </>
   );
 }
