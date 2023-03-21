@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {Suspense, lazy} from 'react';
 import useLocalStorage from './hooks';
-import {css, createGlobalStyle, ThemeProvider} from 'styled-components';
+import styled, {css, createGlobalStyle, ThemeProvider} from 'styled-components';
 import DesignSystem, {areaLt} from './components/design';
 import {
   white,
@@ -12,12 +12,13 @@ import {
 } from './components/design';
 import {ThemeButton} from './components/ui/Button';
 import Nav from './components/ui/Nav';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Home from './pages/Home';
-import MyBlog from './pages/MyBlog';
-import Projects from './pages/Projects';
-import Resume from './pages/Resume';
+import Loader from './components/ui/Loader';
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
+const MyBlog = lazy(() => import('./pages/MyBlog'));
+const Projects = lazy(() => import('./pages/Projects'));
+const Resume = lazy(() => import('./pages/Resume'));
 
 const GlobalStyle = createGlobalStyle`
   ${css`
@@ -62,6 +63,15 @@ const lightTheme = {
   mode: 'light',
 };
 
+const LoaderWr = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: ${props => props.theme.body};
+`;
+
 function App() {
   const [theme, setTheme] = useLocalStorage('dark', 'mode');
   const [page, setPage] = useLocalStorage('HOME', 'page');
@@ -75,16 +85,23 @@ function App() {
 
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
-        <GlobalStyle />
-        <DesignSystem />
+      <GlobalStyle />
+      <DesignSystem />
+      <Suspense
+        fallback={
+          <LoaderWr>
+            <Loader />
+          </LoaderWr>
+        }>
         <ThemeButton toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
         <Nav page={page} setPage={setPage} />
-        {page === 'HOME' && <Home setPage={setPage}  />}
+        {page === 'HOME' && <Home setPage={setPage} />}
         {page === 'ABOUT' && <About />}
         {page === 'RESUME' && <Resume />}
         {page === 'PROJECTS' && <Projects />}
         {page === 'CONTACT' && <Contact />}
         {page === 'BLOG' && <MyBlog />}
+      </Suspense>
     </ThemeProvider>
   );
 }

@@ -11,13 +11,13 @@ const Button = styled.button`
   border-radius: 4px;
   ${bodyMd};
   ${semibold};
-  color: ${props => (props.isSelected ? primaryHover : props.theme.title)};
+  color: ${props => (props.isButtonSelected ? primaryHover : props.theme.title)};
   text-transform: uppercase;
   text-align: center;
   position: relative;
   cursor: pointer;
   ${props =>
-    props.isSelected &&
+    props.isButtonSelected &&
     css`
       &::after {
         content: '';
@@ -43,10 +43,10 @@ const Button = styled.button`
   
 `;
 
-export const FilterButton = ({text, handleClick = () => {}, isSelected}) => {
+export const FilterButton = ({text, handleClick = () => {}, isButtonSelected}) => {
   return (
     <Button
-      isSelected={isSelected}
+      isButtonSelected={isButtonSelected}
       as={motion.button}
       onClick={handleClick}>
       {text}

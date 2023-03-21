@@ -126,7 +126,7 @@ export default function ProjectsFilter({data}) {
               handleFilter(btn);
               setSelected(index);
             }}
-            isSelected={selected === index}
+            isButtonSelected={selected === index}
           />
         ))}
       </ButtonBox>

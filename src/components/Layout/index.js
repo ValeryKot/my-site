@@ -15,12 +15,11 @@ const moveToTop = () => {
 return (
   <motion.div
     key={id}
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
+    initial={{opacity: 0.1}}
+    animate={{opacity: 1}}
     onAnimationComplete={moveToTop}
-    transition={{duration: 0.7, ease: 'circOut'}}
-  >
+    transition={{duration: 0.55, ease: 'easeIn'}}>
     {children}
   </motion.div>
-)};
+);};
 export default Layout;

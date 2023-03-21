@@ -13,7 +13,7 @@ const dualRing = keyframes`
 
 const Wr = styled.div`
   display: flex;
-  flex-basis: 100%;
+  flex-basis: 1;
   grid-column: 1/-1;
   width: 80px;
   height: 80px;
