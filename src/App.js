@@ -1,5 +1,5 @@
 import React, {Suspense, lazy} from 'react';
-import useLocalStorage from './hooks';
+import useLocalStorage from './hooks/useLocalStorage';
 import styled, {css, createGlobalStyle, ThemeProvider} from 'styled-components';
 import DesignSystem, {areaLt} from './components/design';
 import {
@@ -13,6 +13,7 @@ import {
 import {ThemeButton} from './components/ui/Button';
 import Nav from './components/ui/Nav';
 import Loader from './components/ui/Loader';
+import useFonts from './hooks/useFonts';
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
@@ -81,7 +82,9 @@ function App() {
     setTheme(isDarkTheme ? 'light' : 'dark');
   };
 
-  // ADD LAZY AND LOADER!!!
+  useFonts(
+    '<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Poppins:wght@400;500;600;800;900&display=swap" rel="stylesheet">'
+  );
 
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>

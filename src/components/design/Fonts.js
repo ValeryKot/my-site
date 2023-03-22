@@ -47,7 +47,7 @@ export const [regular, semibold, bold, extrabold, black] = [
   'extrabold',
   'black',
 ].map(
-  (weight) => css`
+  weight => css`
     font-weight: var(--${weight});
   `
 );
@@ -63,54 +63,6 @@ export default createGlobalStyle`
       --bold: 600;
       --extrabold: 800;
       --black: 900;
-    }
-    @font-face {
-      font-family: 'Poppins';
-      src: url(${require('./Poppins-Regular.ttf')}) format('truetype');
-      font-weight: 400;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Poppins';
-      src: url(${require('./Poppins-SemiBold.ttf')}) format('truetype');
-      font-weight: 500;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Poppins';
-      src: url(${require('./Poppins-Bold.ttf')}) format('truetype');
-      font-weight: 600;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Poppins';
-      src: url(${require('./Poppins-ExtraBold.ttf')}) format('truetype');
-      font-weight: 800;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Poppins';
-      src: url(${require('./Poppins-Black.ttf')}) format('truetype');
-      font-weight: 900;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'OpenSans';
-      src: url(${require('./OpenSans-Regular.ttf')}) format('truetype');
-      font-weight: 400;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'OpenSans';
-      src: url(${require('./OpenSans-SemiBold.ttf')}) format('truetype');
-      font-weight: 500;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'OpenSans';
-      src: url(${require('./OpenSans-Bold.ttf')}) format('truetype');
-      font-weight: 600;
-      font-style: normal;
     }
   `}
 `;

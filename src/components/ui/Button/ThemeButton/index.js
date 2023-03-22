@@ -11,7 +11,7 @@ const Wr = styled.div`
   top: 30px;
   right: 30px;
   border-radius: 50%;
-  background-color: ${(props) => props.theme.subtitle};
+  background-color: ${props => props.theme.subtitle};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,10 +24,12 @@ const Wr = styled.div`
   }
 `;
 
-export default function ThemeButton({toggleTheme, isDarkTheme}) {
+function ThemeButton({toggleTheme, isDarkTheme}) {
   return (
     <Wr onClick={toggleTheme}>
-      <img src={isDarkTheme ? moon_icon : sun_icon} alt='icon' />
+      <img src={isDarkTheme ? moon_icon : sun_icon} alt="icon" />
     </Wr>
   );
 }
+
+export default React.memo(ThemeButton);

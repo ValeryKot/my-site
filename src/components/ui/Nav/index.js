@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CATEGORIES } from '../../../utils/static';
+import {CATEGORIES} from '../../../utils/static';
 import {BPT} from '../../design';
 import {MenuButton} from '../Button';
 
@@ -30,23 +30,28 @@ const Wr = styled.nav`
     gap: 10px;
     padding: 8px;
     z-index: 10;
-    background: ${(props) => props.theme.lights};
+    background: ${props => props.theme.lights};
   }
   @media ${BPT.xs} {
     gap: 2px;
   }
 `;
 
-
 function Nav({page, setPage}) {
-
   return (
     <Wr>
-      {CATEGORIES.map((btn) => (
-        <MenuButton key={btn.title} title={btn.title} icon={btn.icon} isActive={btn.value === page} setPage={setPage} value={btn.value} />
+      {CATEGORIES.map(btn => (
+        <MenuButton
+          key={btn.title}
+          title={btn.title}
+          icon={btn.icon}
+          isActive={btn.value === page}
+          setPage={setPage}
+          value={btn.value}
+        />
       ))}
     </Wr>
-  )
+  );
 }
 
-export default Nav
+export default React.memo(Nav);
