@@ -28,3 +28,8 @@ export const findKeys = (obj) => {
   }
   return '';
 };
+
+export const decodeHtmlCharCodes = str =>
+  str.replace(/(&#(\d+);)/g, (match, capture, charCode) =>
+    String.fromCharCode(charCode)
+  );

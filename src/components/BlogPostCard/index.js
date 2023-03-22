@@ -2,7 +2,7 @@ import React, {useEffect, useState, useCallback} from 'react';
 import styled from 'styled-components';
 import {h2m, bodyMd, regular, primaryHover, semibold} from '../design';
 import {WP_API} from '../../utils/static';
-import {findKeys} from '../../utils/helpers';
+import {findKeys, decodeHtmlCharCodes} from '../../utils/helpers';
 import Loader from '../ui/Loader';
 
 const Wr = styled.div`
@@ -95,7 +95,9 @@ export default function BlogPostCard({openModal = () => {}}) {
           <TextBox>
             <h3>{p.title}</h3>
             <p>
-              {p.excerpt.replace(/<[^>]*>/gi, '').replace('&#8211; ', ' - ')}
+              {decodeHtmlCharCodes(
+                p.excerpt.replace(/<[^>]*>/gi, '').replace('&#8211; ', ' - ')
+              )}
             </p>
           </TextBox>
         </Wr>
