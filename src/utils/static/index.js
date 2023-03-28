@@ -153,22 +153,7 @@ export const EDUCATION = [
 ];
 
 export const PROJECTS_DATA = [
-  {
-    category: 'projects',
-    title: 'OAZIZ',
-    type: 'Web application',
-    technology: [
-      'HTML',
-      'CSS',
-      'JavaScript',
-      'React.JS',
-      'Responsive Web Design',
-    ],
-    libraries: ['Apollo Client', 'GraphQL', 'Styled Components', 'Swiper.JS'],
-    client: 'OAZIZ Ecosystem',
-    link: 'https://oaziz.merkeleon.com/',
-    file: require('../../images/pr_1.png'),
-  },
+
   {
     category: 'projects',
     title: 'FAIR-TAXES',
@@ -216,6 +201,22 @@ export const PROJECTS_DATA = [
     client: 'SanR',
     link: 'https://sanr.app/',
     file: require('../../images/pr_5.png'),
+  },
+  {
+    category: 'projects',
+    title: 'OAZIZ',
+    type: 'Web application',
+    technology: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'React.JS',
+      'Responsive Web Design',
+    ],
+    libraries: ['Apollo Client', 'GraphQL', 'Styled Components', 'Swiper.JS'],
+    client: 'OAZIZ Ecosystem',
+    link: 'https://oaziz.merkeleon.com/',
+    file: require('../../images/pr_1.png'),
   },
   {
     category: 'projects',

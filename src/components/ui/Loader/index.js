@@ -12,12 +12,12 @@ const dualRing = keyframes`
 `;
 
 const Wr = styled.div`
-  display: flex;
-  flex-basis: 1;
+  /* display: flex; */
+  /* flex-basis: 1; */
   grid-column: 1/-1;
+  margin: 0 auto;
   width: 80px;
   height: 80px;
-  margin: 0 auto;
   &::after {
     content: ' ';
     display: block;
