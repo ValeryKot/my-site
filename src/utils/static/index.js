@@ -197,7 +197,7 @@ export const PROJECTS_DATA = [
     title: 'SanR.App',
     type: 'Web application',
     technology: ['HTML', 'CSS', 'JavaScript', 'React.JS', 'TypeScript'],
-    libraries: ['Ethers.js', 'Styled Components', 'Chartist.js', 'D3.js'],
+    libraries: ['Storebook', 'Ethers.js', 'Styled Components', 'Chartist.js', 'D3.js'],
     client: 'SanR',
     link: 'https://sanr.app/',
     file: require('../../images/pr_5.png'),
@@ -236,7 +236,7 @@ export const PROJECTS_DATA = [
   },
   {
     category: 'projects',
-    title: 'Russian highways (in progress)',
+    title: 'Russian highways',
     type: 'Website',
     technology: [
       'HTML',
