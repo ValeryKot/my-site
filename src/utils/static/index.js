@@ -197,7 +197,7 @@ export const PROJECTS_DATA = [
     title: 'SanR.App',
     type: 'Web application',
     technology: ['HTML', 'CSS', 'JavaScript', 'React.JS', 'TypeScript'],
-    libraries: ['Storebook', 'Ethers.js', 'Styled Components', 'Chartist.js', 'D3.js'],
+    libraries: ['Storybook', 'Ethers.js', 'Styled Components', 'Chartist.js', 'D3.js'],
     client: 'SanR',
     link: 'https://sanr.app/',
     file: require('../../images/pr_5.png'),
@@ -215,7 +215,7 @@ export const PROJECTS_DATA = [
     ],
     libraries: ['Apollo Client', 'GraphQL', 'Styled Components', 'Swiper.JS'],
     client: 'OAZIZ Ecosystem',
-    link: 'https://oaziz.merkeleon.com/',
+    link: 'https://oaziz.com/',
     file: require('../../images/pr_1.png'),
   },
   {
@@ -247,13 +247,13 @@ export const PROJECTS_DATA = [
     ],
     libraries: ['Styled Components', 'Strapi JS'],
     client: 'Russian highways',
-    link: 'https://test.rador.org/',
+    link: 'https://rador.org/',
     file: require('../../images/pr_7.png'),
   },
   {
     category: 'youtube',
     title: 'Ulbi TV',
-    type: 'Youtube channel',
+    type: 'Favourite Youtube channel',
     technology: [
       'JavaScript',
       'React.JS',
