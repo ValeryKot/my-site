@@ -6,7 +6,7 @@ import { ActionButton } from '../ui/Button';
 import dwn_icon from '../../images/icons/download.svg'
 
 const Wr = styled.div`
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;

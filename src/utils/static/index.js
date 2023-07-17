@@ -41,7 +41,7 @@ export const CATEGORIES = [
 export const PERSONAL_INFO = [
   {title: 'First Name:', value: 'Valery'},
   {title: 'Last Name:', value: 'Kot'},
-  {title: 'Age:', value: `${myAge()} Years`},
+  // {title: 'Age:', value: `${myAge()} Years`},
   {title: 'Nationality:', value: 'Belarusian'},
   {title: 'Freelance:', value: 'Available', label: true},
   {title: 'Address:', value: 'Belarus'},
@@ -204,7 +204,7 @@ export const PROJECTS_DATA = [
   },
   {
     category: 'projects',
-    title: 'OAZIZ',
+    title: 'OAZIZ Marketplace',
     type: 'Web application',
     technology: [
       'HTML',

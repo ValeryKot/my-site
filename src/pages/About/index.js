@@ -31,9 +31,11 @@ const Container = styled.div`
 `;
 const InfoContainer = styled.div`
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
   @media ${BPT.lg} {
+    grid-template-columns: 1fr;
     gap: 32px;
   } ;
 `;
