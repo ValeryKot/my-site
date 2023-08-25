@@ -4,7 +4,7 @@ import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import emailjs from '@emailjs/browser';
 import {BPT} from '../design';
-import {FEEDBACK} from '../../utils/static';
+// import {FEEDBACK} from '../../utils/static';
 import formReducer from '../../utils/reducers/formReducer';
 import formValidityReducer from '../../utils/reducers/formValidityReducer';
 import Input from '../Input';
@@ -91,12 +91,11 @@ export default function ContactForm() {
     //     setLoading(false);
     //   })
     //   .catch((err) => alert(err.message));
-
     emailjs.sendForm(
-      process.env.SEND_SERVICE_ID,
-      process.env.SEND_TEMPLATE_ID,
+      import.meta.env.VITE_SEND_SERVICE_ID,
+      import.meta.env.VITE_SEND_TEMPLATE_ID,
       formRef.current,
-      process.env.SEND_PUBLIC_KEY
+      import.meta.env.VITE_SEND_PUBLIC_KEY
     )
       .then((result) => {
         console.log(result.text);
