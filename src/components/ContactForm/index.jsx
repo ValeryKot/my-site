@@ -93,10 +93,10 @@ export default function ContactForm() {
     //   .catch((err) => alert(err.message));
 
     emailjs.sendForm(
-      import.meta.env.SEND_SERVICE_ID,
-      import.meta.env.SEND_TEMPLATE_ID,
+      process.env.SEND_SERVICE_ID,
+      process.env.SEND_TEMPLATE_ID,
       formRef.current,
-      import.meta.env.SEND_PUBLIC_KEY
+      process.env.SEND_PUBLIC_KEY
     )
       .then((result) => {
         console.log(result.text);
