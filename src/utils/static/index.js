@@ -9,7 +9,16 @@ import tw_icon from '../../images/icons/twitter.svg';
 import li_icon from '../../images/icons/linkid.svg';
 import tg_icon from '../../images/icons/telegram.svg';
 
-import {myAge} from '../helpers';
+// import {myAge} from '../helpers';
+
+import prjOaziz from '../../images/pr_1.png';
+import prjFair from '../../images/pr_2.png';
+import prjExplorer from '../../images/pr_3.png';
+import prjSanLanding from '../../images/pr_4.png';
+import prjSanApp from '../../images/pr_5.png';
+import prjMySite from '../../images/pr_6.png';
+import prjRusHighway from '../../images/pr_7.png';
+import videoUlbi from '../../images/video_1.png';
 
 export const PHONE = '+375336320623';
 export const E_MAIL = 'kot.valery@gmail.com';
@@ -162,7 +171,7 @@ export const PROJECTS_DATA = [
     libraries: ['Tailwind CSS', 'Swiper.JS'],
     client: 'FAIR TAXES',
     link: 'https://fair-taxes.ru/',
-    file: require('../../images/pr_2.png'),
+    file: prjFair,
   },
   {
     category: 'projects',
@@ -180,7 +189,7 @@ export const PROJECTS_DATA = [
     libraries: ['Apollo Client', 'GraphQL', 'Ethers.js', 'Material UI'],
     client: 'SanR',
     link: 'https://sanrchain-explorer.santiment.net/',
-    file: require('../../images/pr_3.png'),
+    file: prjExplorer,
   },
   {
     category: 'projects',
@@ -190,7 +199,7 @@ export const PROJECTS_DATA = [
     libraries: ['Styled Components', 'Airbnb-prop-types'],
     client: 'SanR',
     link: 'https://sanr.app/staking',
-    file: require('../../images/pr_4.png'),
+    file: prjSanLanding,
   },
   {
     category: 'projects',
@@ -200,7 +209,7 @@ export const PROJECTS_DATA = [
     libraries: ['Storybook', 'Ethers.js', 'Styled Components', 'Chartist.js', 'D3.js'],
     client: 'SanR',
     link: 'https://sanr.app/',
-    file: require('../../images/pr_5.png'),
+    file: prjSanApp,
   },
   {
     category: 'projects',
@@ -216,7 +225,7 @@ export const PROJECTS_DATA = [
     libraries: ['Apollo Client', 'GraphQL', 'Styled Components', 'Swiper.JS'],
     client: 'OAZIZ Ecosystem',
     link: 'https://oaziz.com/',
-    file: require('../../images/pr_1.png'),
+    file: prjOaziz,
   },
   {
     category: 'projects',
@@ -232,7 +241,7 @@ export const PROJECTS_DATA = [
     libraries: ['Styled Components', 'Framer motion', 'React Collapse'],
     client: 'Valery Kot',
     link: 'https://my-site-valerykot.vercel.app/',
-    file: require('../../images/pr_6.png'),
+    file: prjMySite,
   },
   {
     category: 'projects',
@@ -248,7 +257,7 @@ export const PROJECTS_DATA = [
     libraries: ['Styled Components', 'Strapi JS'],
     client: 'Russian highways',
     link: 'https://rador.org/',
-    file: require('../../images/pr_7.png'),
+    file: prjRusHighway,
   },
   {
     category: 'youtube',
@@ -264,6 +273,6 @@ export const PROJECTS_DATA = [
     libraries: [],
     client: '',
     link: 'https://www.youtube.com/@UlbiTV',
-    file: require('../../images/video_1.png'),
+    file: videoUlbi,
   },
 ];
